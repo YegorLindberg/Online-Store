@@ -16,16 +16,16 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="I1Y-de-dkO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Enp-hN-fCn">
                             <size key="itemSize" width="160" height="180"/>
                             <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="15" minY="12" maxX="15" maxY="12"/>
+                            <inset key="sectionInset" minX="15" minY="15" maxX="15" maxY="15"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="productCell" id="0wd-J5-GUH" customClass="ProductCollectionViewCell" customModule="online_store" customModuleProvider="target">
-                                <rect key="frame" x="15" y="62" width="160" height="180"/>
+                            <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="productCell" id="0wd-J5-GUH" customClass="ProductCollectionViewCell" customModule="online_store" customModuleProvider="target">
+                                <rect key="frame" x="15" y="65" width="160" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="160" height="180"/>
@@ -33,24 +33,28 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="znB-Wd-6hH">
                                             <rect key="frame" x="24" y="11" width="112" height="90"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="90" id="Sqa-Qz-3Ps"/>
+                                                <constraint firstAttribute="width" constant="112" id="tWH-Z3-jTk"/>
+                                            </constraints>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="XvN-MV-ys7">
-                                            <rect key="frame" x="22" y="106" width="116" height="61.5"/>
+                                            <rect key="frame" x="4" y="106" width="152" height="61.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rating" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azK-FI-f8n">
-                                                    <rect key="frame" x="37" y="0.0" width="42" height="19.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rating" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azK-FI-f8n">
+                                                    <rect key="frame" x="55" y="0.0" width="42" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of product" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJ8-fR-m1A">
-                                                    <rect key="frame" x="0.0" y="22.5" width="116" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Name of product" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="150" translatesAutoresizingMaskIntoConstraints="NO" id="fJ8-fR-m1A">
+                                                    <rect key="frame" x="18" y="22.5" width="116" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLD-kJ-CVy">
-                                                    <rect key="frame" x="41" y="43.5" width="34.5" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLD-kJ-CVy">
+                                                    <rect key="frame" x="59" y="43.5" width="34.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -59,12 +63,14 @@
                                         </stackView>
                                     </subviews>
                                 </view>
-                                <color key="backgroundColor" red="0.091397289199999995" green="0.80414102980000002" blue="0.10461100750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="XvN-MV-ys7" firstAttribute="top" secondItem="znB-Wd-6hH" secondAttribute="bottom" constant="5" id="0j2-lZ-YNL"/>
                                     <constraint firstItem="znB-Wd-6hH" firstAttribute="top" secondItem="0wd-J5-GUH" secondAttribute="top" constant="11" id="1Ud-9L-XyF"/>
                                     <constraint firstItem="znB-Wd-6hH" firstAttribute="width" secondItem="0wd-J5-GUH" secondAttribute="width" multiplier="0.7" id="5VR-e0-1xO"/>
                                     <constraint firstAttribute="bottom" secondItem="XvN-MV-ys7" secondAttribute="bottom" constant="12.5" id="ed7-XY-Caf"/>
+                                    <constraint firstItem="XvN-MV-ys7" firstAttribute="width" secondItem="0wd-J5-GUH" secondAttribute="width" multiplier="0.95" id="obm-YI-enm"/>
                                     <constraint firstItem="XvN-MV-ys7" firstAttribute="centerX" secondItem="0wd-J5-GUH" secondAttribute="centerX" id="qwP-J0-ZGJ"/>
                                     <constraint firstItem="znB-Wd-6hH" firstAttribute="centerX" secondItem="0wd-J5-GUH" secondAttribute="centerX" id="zt8-k5-ehw"/>
                                 </constraints>

@@ -77,10 +77,43 @@ class AllProductsViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCollectionViewCell
-        
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor.black.cgColor
         cell.labelNameProduct.text = (dataObject[indexPath.row]["title"] as! String)
         
-        // Configure the cell
+        if (dataObject[indexPath.row]["rating"] as? NSNull) != nil {
+            cell.labelRating.text = "Rating is missing"
+//            print("\(String(describing: dataObject[indexPath.row]["title"])) with rating\(ratingProduct)")
+        } else {
+            if let ratingProduct = dataObject[indexPath.row]["rating"] as? Double {
+                cell.labelRating.text = "Rating: \(ratingProduct)"
+            } else {
+                cell.labelRating.text = "Rating is missing"
+            }
+        }
+        
+        if (dataObject[indexPath.row]["price"] as? NSNull) != nil {
+            cell.labelPrice.text = "Price is missing"
+        } else {
+            if let priceProduct = dataObject[indexPath.row]["price"] as? Int {
+                cell.labelPrice.text = "Price: \(priceProduct)"
+            } else {
+                cell.labelPrice.text = "Price is missing"
+            }
+        }
+        if (dataObject[indexPath.row]["imageUrl"] as? NSNull) != nil {
+            cell.ImageViewProduct.image = #imageLiteral(resourceName: "emptyimg")
+        } else {
+            
+            Alamofire.request(dataObject[indexPath.row]["imageUrl"] as! String).responseData { (response) in
+                print(response.result)
+                print(response.result.value as Any)
+                
+                if let data = response.result.value {
+                    cell.ImageViewProduct.image = UIImage(data: data)
+                }
+            }
+        }
     
         return cell
     }
