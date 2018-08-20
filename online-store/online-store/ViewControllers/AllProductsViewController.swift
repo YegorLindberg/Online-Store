@@ -17,6 +17,11 @@ class AllProductsViewController: UICollectionViewController {
     private var metaObject: Dictionary<String, Any>!
     private var dataObject = [Dictionary<String, Any>]()
     
+    @IBAction func onMenuTapped() {
+        print("TOGGLE SIDE MENU")
+        NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
