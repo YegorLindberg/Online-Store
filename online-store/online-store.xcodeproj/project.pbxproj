@@ -10,11 +10,11 @@
 		758A350C5FC34265A7F88201 /* Pods_online_store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38EA80C399668023BE1D6EE5 /* Pods_online_store.framework */; };
 		CB01495A212AF2C400CD9703 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB014959212AF2C400CD9703 /* SlideMenuViewController.swift */; };
 		CB01495C212B009200CD9703 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB01495B212B009200CD9703 /* ContainerViewController.swift */; };
+		CB064FBF213172220088982E /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB064FBE213172220088982E /* Product.swift */; };
 		CB5503A3212D65D10038DB60 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5503A2212D65D10038DB60 /* CategoryCollectionViewCell.swift */; };
 		CB855AF2212D58EF00B507F1 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB855AF1212D58EF00B507F1 /* CategoriesViewController.swift */; };
-		CB89D87921245EFE009F5BEC /* AllProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB89D87821245EFE009F5BEC /* AllProductsViewController.swift */; };
+		CB89D87921245EFE009F5BEC /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB89D87821245EFE009F5BEC /* ProductsViewController.swift */; };
 		CB89D87C21248180009F5BEC /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB89D87B21248180009F5BEC /* ProductCollectionViewCell.swift */; };
-		CB89D87E2124860A009F5BEC /* CProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB89D87D2124860A009F5BEC /* CProduct.swift */; };
 		CBCFA31A2124520D0043A08A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCFA3192124520D0043A08A /* AppDelegate.swift */; };
 		CBCFA31F2124520D0043A08A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBCFA31D2124520D0043A08A /* Main.storyboard */; };
 		CBCFA3222124520D0043A08A /* online_store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBCFA3202124520D0043A08A /* online_store.xcdatamodeld */; };
@@ -47,11 +47,11 @@
 		C8DFE9A1697F7410D98CA289 /* Pods-online-store.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-online-store.release.xcconfig"; path = "Pods/Target Support Files/Pods-online-store/Pods-online-store.release.xcconfig"; sourceTree = "<group>"; };
 		CB014959212AF2C400CD9703 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
 		CB01495B212B009200CD9703 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		CB064FBE213172220088982E /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		CB5503A2212D65D10038DB60 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB855AF1212D58EF00B507F1 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
-		CB89D87821245EFE009F5BEC /* AllProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProductsViewController.swift; sourceTree = "<group>"; };
+		CB89D87821245EFE009F5BEC /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		CB89D87B21248180009F5BEC /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
-		CB89D87D2124860A009F5BEC /* CProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CProduct.swift; sourceTree = "<group>"; };
 		CBCFA3162124520D0043A08A /* online-store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "online-store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBCFA3192124520D0043A08A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBCFA31E2124520D0043A08A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -110,24 +110,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CB064FBD213171320088982E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CBCFA325212452160043A08A /* LaunchScreen.storyboard */,
+				CBCFA31D2124520D0043A08A /* Main.storyboard */,
+				CBCFA323212452160043A08A /* Assets.xcassets */,
+				CB5503A2212D65D10038DB60 /* CategoryCollectionViewCell.swift */,
+				CB89D87B21248180009F5BEC /* ProductCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CB064FC0213172740088982E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		CB5503A1212D65890038DB60 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CB89D87B21248180009F5BEC /* ProductCollectionViewCell.swift */,
-				CB5503A2212D65D10038DB60 /* CategoryCollectionViewCell.swift */,
+				CB064FBE213172220088982E /* Product.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		CB89D87A21245F13009F5BEC /* ViewControllers */ = {
+		CB89D87A21245F13009F5BEC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CB89D87821245EFE009F5BEC /* AllProductsViewController.swift */,
+				CB89D87821245EFE009F5BEC /* ProductsViewController.swift */,
 				CB01495B212B009200CD9703 /* ContainerViewController.swift */,
 				CB014959212AF2C400CD9703 /* SlideMenuViewController.swift */,
 				CB855AF1212D58EF00B507F1 /* CategoriesViewController.swift */,
 			);
-			path = ViewControllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		CBCFA30D2124520D0043A08A = {
@@ -155,13 +173,11 @@
 		CBCFA3182124520D0043A08A /* online-store */ = {
 			isa = PBXGroup;
 			children = (
+				CB064FC0213172740088982E /* Network */,
+				CB064FBD213171320088982E /* Views */,
 				CB5503A1212D65890038DB60 /* Models */,
-				CB89D87A21245F13009F5BEC /* ViewControllers */,
-				CB89D87D2124860A009F5BEC /* CProduct.swift */,
+				CB89D87A21245F13009F5BEC /* Controllers */,
 				CBCFA3192124520D0043A08A /* AppDelegate.swift */,
-				CBCFA31D2124520D0043A08A /* Main.storyboard */,
-				CBCFA323212452160043A08A /* Assets.xcassets */,
-				CBCFA325212452160043A08A /* LaunchScreen.storyboard */,
 				CBCFA328212452160043A08A /* Info.plist */,
 				CBCFA3202124520D0043A08A /* online_store.xcdatamodeld */,
 			);
@@ -323,10 +339,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-online-store/Pods-online-store-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -358,9 +378,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB89D87E2124860A009F5BEC /* CProduct.swift in Sources */,
-				CB89D87921245EFE009F5BEC /* AllProductsViewController.swift in Sources */,
+				CB89D87921245EFE009F5BEC /* ProductsViewController.swift in Sources */,
 				CB01495C212B009200CD9703 /* ContainerViewController.swift in Sources */,
+				CB064FBF213172220088982E /* Product.swift in Sources */,
 				CBCFA3222124520D0043A08A /* online_store.xcdatamodeld in Sources */,
 				CB5503A3212D65D10038DB60 /* CategoryCollectionViewCell.swift in Sources */,
 				CB855AF2212D58EF00B507F1 /* CategoriesViewController.swift in Sources */,

@@ -73,7 +73,7 @@
         <!--All Products-->
         <scene sceneID="PVY-1b-RdX">
             <objects>
-                <collectionViewController id="mAM-fg-HFn" customClass="AllProductsViewController" customModule="online_store" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="mAM-fg-HFn" customClass="ProductsViewController" customModule="online_store" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="I1Y-de-dkO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -4,4 +4,6 @@ use_frameworks!
 
 target 'online-store' do
     pod 'Alamofire', '~> 4.7'
+    pod 'SDWebImage', '~> 4.0'
+    pod 'ObjectMapper', '~> 3.3'
 end
