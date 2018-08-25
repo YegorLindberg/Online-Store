@@ -10,13 +10,13 @@ import UIKit
 import ObjectMapper
 
 class Product: Mappable {
-    var productId: Int?
-    var title: String!
+    var productId:          Int?
+    var title:              String!
     var productDescription: String!
-    var price: Int?
-    var rating: Double?
-    var imageUrl: String?
-    var images: [String]?
+    var price:              Int?
+    var rating:             Double?
+    var imageUrl:           String?
+    var images:             [String]?
     
     required init?(map: Map) {
         
@@ -24,12 +24,12 @@ class Product: Mappable {
     
     // Mappable
     func mapping(map: Map) {
-        productId    <- map["productId"]
-        title         <- map["title"]
-        productDescription      <- map["productDescription"]
-        price       <- map["price"]
-        rating  <- map["rating"]
-        imageUrl     <- map["imageUrl"]
-        images    <- map["images"]
+        productId          <- map["productId"]
+        title              <- map["title"]
+        productDescription <- map["productDescription"]
+        price              <- map["price"]
+        rating             <- map["rating"]
+        imageUrl           <- map["imageUrl"]
+        images             <- map["images"]
     }
 }

@@ -44,7 +44,7 @@ class ProductsViewController: UICollectionViewController {
                 let products = jsonObject["data"] as! [Dictionary<String, Any>]
                 
                 self.productsFromJSON = Mapper<Product>().mapArray(JSONArray: products)
-                print("dataObject: \(String(describing: metaObject["success"]))")
+                print("success products: \(String(describing: metaObject["success"]))")
                 print("dataObject: \(self.productsFromJSON[0].title)\n\n")
             }
             DispatchQueue.main.async {
@@ -58,14 +58,10 @@ class ProductsViewController: UICollectionViewController {
         performSegue(withIdentifier: "ShowCategories", sender: nil)
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    
-    // MARK: - Navigation
 
     // MARK: UICollectionViewDataSource
 
@@ -100,7 +96,7 @@ class ProductsViewController: UICollectionViewController {
             cell.labelPrice.text = "Price is missing"
         }        
 
-        cell.ImageViewProduct.sd_setImage(with: URL(string: ("\(String(describing: product.imageUrl))")), placeholderImage: UIImage(named: "emptyimg.png"))
+        cell.ImageViewProduct.sd_setImage(with: URL(string: ("\(product.imageUrl ?? "Empty Img")")), placeholderImage: UIImage(named: "emptyimg.png"))
     
         return cell
     }
