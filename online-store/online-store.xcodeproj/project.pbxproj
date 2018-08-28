@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		758A350C5FC34265A7F88201 /* Pods_online_store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38EA80C399668023BE1D6EE5 /* Pods_online_store.framework */; };
-		CB01495A212AF2C400CD9703 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB014959212AF2C400CD9703 /* SlideMenuViewController.swift */; };
-		CB01495C212B009200CD9703 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB01495B212B009200CD9703 /* ContainerViewController.swift */; };
 		CB064FBF213172220088982E /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB064FBE213172220088982E /* Product.swift */; };
 		CB064FC22131B4AF0088982E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB064FC12131B4AF0088982E /* Category.swift */; };
 		CB064FC42131BAED0088982E /* NetWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB064FC32131BAED0088982E /* NetWorker.swift */; };
+		CB34134421356142001E0E7B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34134221356142001E0E7B /* SWRevealViewController.m */; };
+		CB3413462135642E001E0E7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB3413452135642E001E0E7B /* Assets.xcassets */; };
 		CB5503A3212D65D10038DB60 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5503A2212D65D10038DB60 /* CategoryCollectionViewCell.swift */; };
 		CB855AF2212D58EF00B507F1 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB855AF1212D58EF00B507F1 /* CategoriesViewController.swift */; };
 		CB89D87921245EFE009F5BEC /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB89D87821245EFE009F5BEC /* ProductsViewController.swift */; };
@@ -20,7 +20,6 @@
 		CBCFA31A2124520D0043A08A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCFA3192124520D0043A08A /* AppDelegate.swift */; };
 		CBCFA31F2124520D0043A08A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBCFA31D2124520D0043A08A /* Main.storyboard */; };
 		CBCFA3222124520D0043A08A /* online_store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBCFA3202124520D0043A08A /* online_store.xcdatamodeld */; };
-		CBCFA324212452160043A08A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBCFA323212452160043A08A /* Assets.xcassets */; };
 		CBCFA327212452160043A08A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBCFA325212452160043A08A /* LaunchScreen.storyboard */; };
 		CBCFA332212452160043A08A /* online_storeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCFA331212452160043A08A /* online_storeTests.swift */; };
 		CBCFA33D212452160043A08A /* online_storeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCFA33C212452160043A08A /* online_storeUITests.swift */; };
@@ -47,11 +46,13 @@
 		38EA80C399668023BE1D6EE5 /* Pods_online_store.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_online_store.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5617A18AED03DC888A5B480A /* Pods-online-store.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-online-store.debug.xcconfig"; path = "Pods/Target Support Files/Pods-online-store/Pods-online-store.debug.xcconfig"; sourceTree = "<group>"; };
 		C8DFE9A1697F7410D98CA289 /* Pods-online-store.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-online-store.release.xcconfig"; path = "Pods/Target Support Files/Pods-online-store/Pods-online-store.release.xcconfig"; sourceTree = "<group>"; };
-		CB014959212AF2C400CD9703 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
-		CB01495B212B009200CD9703 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		CB064FBE213172220088982E /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		CB064FC12131B4AF0088982E /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		CB064FC32131BAED0088982E /* NetWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorker.swift; sourceTree = "<group>"; };
+		CB34134121356141001E0E7B /* online-store-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "online-store-Bridging-Header.h"; sourceTree = "<group>"; };
+		CB34134221356142001E0E7B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		CB34134321356142001E0E7B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		CB3413452135642E001E0E7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB5503A2212D65D10038DB60 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB855AF1212D58EF00B507F1 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		CB89D87821245EFE009F5BEC /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
@@ -60,7 +61,6 @@
 		CBCFA3192124520D0043A08A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBCFA31E2124520D0043A08A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CBCFA3212124520D0043A08A /* online_store.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = online_store.xcdatamodel; sourceTree = "<group>"; };
-		CBCFA323212452160043A08A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBCFA326212452160043A08A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CBCFA328212452160043A08A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBCFA32D212452160043A08A /* online-storeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "online-storeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,7 +119,7 @@
 			children = (
 				CBCFA325212452160043A08A /* LaunchScreen.storyboard */,
 				CBCFA31D2124520D0043A08A /* Main.storyboard */,
-				CBCFA323212452160043A08A /* Assets.xcassets */,
+				CB3413452135642E001E0E7B /* Assets.xcassets */,
 				CB5503A2212D65D10038DB60 /* CategoryCollectionViewCell.swift */,
 				CB89D87B21248180009F5BEC /* ProductCollectionViewCell.swift */,
 			);
@@ -132,6 +132,16 @@
 				CB064FC32131BAED0088982E /* NetWorker.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		CB3413402135611B001E0E7B /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CB34134321356142001E0E7B /* SWRevealViewController.h */,
+				CB34134221356142001E0E7B /* SWRevealViewController.m */,
+				CB34134121356141001E0E7B /* online-store-Bridging-Header.h */,
+			);
+			path = SWRevealViewController;
 			sourceTree = "<group>";
 		};
 		CB5503A1212D65890038DB60 /* Models */ = {
@@ -147,8 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				CB89D87821245EFE009F5BEC /* ProductsViewController.swift */,
-				CB01495B212B009200CD9703 /* ContainerViewController.swift */,
-				CB014959212AF2C400CD9703 /* SlideMenuViewController.swift */,
 				CB855AF1212D58EF00B507F1 /* CategoriesViewController.swift */,
 			);
 			path = Controllers;
@@ -179,6 +187,7 @@
 		CBCFA3182124520D0043A08A /* online-store */ = {
 			isa = PBXGroup;
 			children = (
+				CB3413402135611B001E0E7B /* SWRevealViewController */,
 				CB064FC0213172740088982E /* Network */,
 				CB064FBD213171320088982E /* Views */,
 				CB5503A1212D65890038DB60 /* Models */,
@@ -278,6 +287,7 @@
 				TargetAttributes = {
 					CBCFA3152124520D0043A08A = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 					CBCFA32C212452160043A08A = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -315,7 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBCFA327212452160043A08A /* LaunchScreen.storyboard in Resources */,
-				CBCFA324212452160043A08A /* Assets.xcassets in Resources */,
+				CB3413462135642E001E0E7B /* Assets.xcassets in Resources */,
 				CBCFA31F2124520D0043A08A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,13 +397,12 @@
 				CB064FC42131BAED0088982E /* NetWorker.swift in Sources */,
 				CB89D87921245EFE009F5BEC /* ProductsViewController.swift in Sources */,
 				CB064FC22131B4AF0088982E /* Category.swift in Sources */,
-				CB01495C212B009200CD9703 /* ContainerViewController.swift in Sources */,
 				CB064FBF213172220088982E /* Product.swift in Sources */,
 				CBCFA3222124520D0043A08A /* online_store.xcdatamodeld in Sources */,
 				CB5503A3212D65D10038DB60 /* CategoryCollectionViewCell.swift in Sources */,
 				CB855AF2212D58EF00B507F1 /* CategoriesViewController.swift in Sources */,
+				CB34134421356142001E0E7B /* SWRevealViewController.m in Sources */,
 				CB89D87C21248180009F5BEC /* ProductCollectionViewCell.swift in Sources */,
-				CB01495A212AF2C400CD9703 /* SlideMenuViewController.swift in Sources */,
 				CBCFA31A2124520D0043A08A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,6 +577,7 @@
 			baseConfigurationReference = 5617A18AED03DC888A5B480A /* Pods-online-store.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DQ34MQ3ZUS;
 				INFOPLIST_FILE = "online-store/Info.plist";
@@ -578,6 +588,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "WTSoft.online-store";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "online-store/SWRevealViewController/online-store-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -588,6 +600,7 @@
 			baseConfigurationReference = C8DFE9A1697F7410D98CA289 /* Pods-online-store.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DQ34MQ3ZUS;
 				INFOPLIST_FILE = "online-store/Info.plist";
@@ -598,6 +611,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "WTSoft.online-store";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "online-store/SWRevealViewController/online-store-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

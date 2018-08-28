@@ -6,7 +6,6 @@
 //  Copyright © 2018 Moore. All rights reserved.
 //
 
-import UIKit
 import ObjectMapper
 
 class Product: Mappable {
