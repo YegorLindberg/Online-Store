@@ -10,13 +10,14 @@
 		758A350C5FC34265A7F88201 /* Pods_online_store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38EA80C399668023BE1D6EE5 /* Pods_online_store.framework */; };
 		CB064FBF213172220088982E /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB064FBE213172220088982E /* Product.swift */; };
 		CB064FC22131B4AF0088982E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB064FC12131B4AF0088982E /* Category.swift */; };
-		CB064FC42131BAED0088982E /* NetWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB064FC32131BAED0088982E /* NetWorker.swift */; };
+		CB064FC42131BAED0088982E /* ProductApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB064FC32131BAED0088982E /* ProductApi.swift */; };
 		CB34134421356142001E0E7B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34134221356142001E0E7B /* SWRevealViewController.m */; };
 		CB3413462135642E001E0E7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB3413452135642E001E0E7B /* Assets.xcassets */; };
 		CB5503A3212D65D10038DB60 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5503A2212D65D10038DB60 /* CategoryCollectionViewCell.swift */; };
 		CB855AF2212D58EF00B507F1 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB855AF1212D58EF00B507F1 /* CategoriesViewController.swift */; };
 		CB89D87921245EFE009F5BEC /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB89D87821245EFE009F5BEC /* ProductsViewController.swift */; };
 		CB89D87C21248180009F5BEC /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB89D87B21248180009F5BEC /* ProductCollectionViewCell.swift */; };
+		CBB5F19021392E4A005436B1 /* CategoryApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB5F18F21392E4A005436B1 /* CategoryApi.swift */; };
 		CBCFA31A2124520D0043A08A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCFA3192124520D0043A08A /* AppDelegate.swift */; };
 		CBCFA31F2124520D0043A08A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBCFA31D2124520D0043A08A /* Main.storyboard */; };
 		CBCFA3222124520D0043A08A /* online_store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBCFA3202124520D0043A08A /* online_store.xcdatamodeld */; };
@@ -48,7 +49,7 @@
 		C8DFE9A1697F7410D98CA289 /* Pods-online-store.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-online-store.release.xcconfig"; path = "Pods/Target Support Files/Pods-online-store/Pods-online-store.release.xcconfig"; sourceTree = "<group>"; };
 		CB064FBE213172220088982E /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		CB064FC12131B4AF0088982E /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		CB064FC32131BAED0088982E /* NetWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorker.swift; sourceTree = "<group>"; };
+		CB064FC32131BAED0088982E /* ProductApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductApi.swift; sourceTree = "<group>"; };
 		CB34134121356141001E0E7B /* online-store-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "online-store-Bridging-Header.h"; sourceTree = "<group>"; };
 		CB34134221356142001E0E7B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		CB34134321356142001E0E7B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -57,6 +58,7 @@
 		CB855AF1212D58EF00B507F1 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		CB89D87821245EFE009F5BEC /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		CB89D87B21248180009F5BEC /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		CBB5F18F21392E4A005436B1 /* CategoryApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryApi.swift; sourceTree = "<group>"; };
 		CBCFA3162124520D0043A08A /* online-store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "online-store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBCFA3192124520D0043A08A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBCFA31E2124520D0043A08A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -129,7 +131,8 @@
 		CB064FC0213172740088982E /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				CB064FC32131BAED0088982E /* NetWorker.swift */,
+				CB064FC32131BAED0088982E /* ProductApi.swift */,
+				CBB5F18F21392E4A005436B1 /* CategoryApi.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -394,11 +397,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB064FC42131BAED0088982E /* NetWorker.swift in Sources */,
+				CB064FC42131BAED0088982E /* ProductApi.swift in Sources */,
 				CB89D87921245EFE009F5BEC /* ProductsViewController.swift in Sources */,
 				CB064FC22131B4AF0088982E /* Category.swift in Sources */,
 				CB064FBF213172220088982E /* Product.swift in Sources */,
 				CBCFA3222124520D0043A08A /* online_store.xcdatamodeld in Sources */,
+				CBB5F19021392E4A005436B1 /* CategoryApi.swift in Sources */,
 				CB5503A3212D65D10038DB60 /* CategoryCollectionViewCell.swift in Sources */,
 				CB855AF2212D58EF00B507F1 /* CategoriesViewController.swift in Sources */,
 				CB34134421356142001E0E7B /* SWRevealViewController.m in Sources */,

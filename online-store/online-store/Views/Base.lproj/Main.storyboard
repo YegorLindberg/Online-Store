@@ -36,9 +36,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y37-Ya-lME">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y37-Ya-lME">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HAJ-ld-1mj">
                                     <size key="itemSize" width="158" height="211"/>
@@ -49,7 +48,7 @@
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productCell" id="cjZ-g8-SxC" customClass="ProductCollectionViewCell" customModule="online_store" customModuleProvider="target">
                                         <rect key="frame" x="20" y="20" width="160" height="188"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="188"/>
                                             <autoresizingMask key="autoresizingMask"/>
@@ -57,12 +56,12 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bqX-0C-d3u">
                                                     <rect key="frame" x="12" y="9" width="136" height="116"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="116" id="XoO-YD-DcP"/>
-                                                        <constraint firstAttribute="width" constant="136" id="fQs-pA-TSR"/>
+                                                        <constraint firstAttribute="height" constant="116" id="0YG-Lf-71z"/>
+                                                        <constraint firstAttribute="width" constant="136" id="w7o-v0-I7C"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleAspectFit" verticalHuggingPriority="750" axis="vertical" distribution="equalSpacing" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="eYr-9Y-a6x">
-                                                    <rect key="frame" x="5.5" y="128" width="150" height="56"/>
+                                                    <rect key="frame" x="5" y="128" width="150" height="56"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Name label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="150" translatesAutoresizingMaskIntoConstraints="NO" id="g42-qK-tSn">
                                                             <rect key="frame" x="7.5" y="0.0" width="135" height="18"/>
@@ -84,16 +83,18 @@
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="150" id="09N-qW-RHD"/>
+                                                        <constraint firstItem="tac-00-vbR" firstAttribute="top" secondItem="g42-qK-tSn" secondAttribute="bottom" constant="1" id="159-Hv-v7s"/>
+                                                        <constraint firstAttribute="width" constant="150" id="Md6-Zu-UPP"/>
+                                                        <constraint firstItem="qAe-cy-Gza" firstAttribute="top" secondItem="tac-00-vbR" secondAttribute="bottom" constant="1" id="Vmx-lh-ruq"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="eYr-9Y-a6x" firstAttribute="top" secondItem="bqX-0C-d3u" secondAttribute="bottom" constant="3" id="Eqb-CI-Guk"/>
-                                            <constraint firstItem="bqX-0C-d3u" firstAttribute="centerX" secondItem="cjZ-g8-SxC" secondAttribute="centerX" id="fNH-xl-aGo"/>
-                                            <constraint firstItem="eYr-9Y-a6x" firstAttribute="centerX" secondItem="cjZ-g8-SxC" secondAttribute="centerX" id="lQd-2y-4Ed"/>
-                                            <constraint firstItem="bqX-0C-d3u" firstAttribute="top" secondItem="cjZ-g8-SxC" secondAttribute="top" constant="9" id="vQa-gA-Udc"/>
+                                            <constraint firstItem="bqX-0C-d3u" firstAttribute="top" secondItem="cjZ-g8-SxC" secondAttribute="top" constant="9" id="0s0-dt-cIq"/>
+                                            <constraint firstItem="eYr-9Y-a6x" firstAttribute="centerX" secondItem="cjZ-g8-SxC" secondAttribute="centerX" id="GrH-Kc-24o"/>
+                                            <constraint firstAttribute="bottom" secondItem="eYr-9Y-a6x" secondAttribute="bottom" constant="4" id="Qn9-3x-TiY"/>
+                                            <constraint firstItem="bqX-0C-d3u" firstAttribute="centerX" secondItem="cjZ-g8-SxC" secondAttribute="centerX" id="y1W-4w-9jZ"/>
                                         </constraints>
                                         <size key="customSize" width="160" height="188"/>
                                         <connections>
@@ -104,17 +105,27 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="fTG-Ou-eti" id="3mf-AZ-cnr"/>
+                                    <outlet property="delegate" destination="fTG-Ou-eti" id="yk5-rj-cti"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="y37-Ya-lME" firstAttribute="bottom" secondItem="vjO-3f-BD8" secondAttribute="bottom" id="CSl-N9-fEZ"/>
+                            <constraint firstItem="y37-Ya-lME" firstAttribute="leading" secondItem="vjO-3f-BD8" secondAttribute="leading" id="Fz4-l0-mdE"/>
+                            <constraint firstItem="y37-Ya-lME" firstAttribute="top" secondItem="vjO-3f-BD8" secondAttribute="top" id="RWO-cw-87R"/>
+                            <constraint firstItem="y37-Ya-lME" firstAttribute="trailing" secondItem="vjO-3f-BD8" secondAttribute="trailing" id="kfU-vV-IfC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vjO-3f-BD8"/>
                     </view>
                     <navigationItem key="navigationItem" title="Products" id="TAG-oi-us7">
                         <barButtonItem key="leftBarButtonItem" tag="1" title="Menu" style="plain" id="8Ky-fh-RQs"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="MainCollectionView" destination="y37-Ya-lME" id="QSa-y6-X5k"/>
                         <outlet property="buttonMenu" destination="8Ky-fh-RQs" id="B7t-D8-xfc"/>
+                        <outlet property="collectionView" destination="y37-Ya-lME" id="QSa-y6-X5k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zNB-qI-QqR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -205,7 +216,7 @@
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="rmI-Cx-3lp" customClass="CategoryCollectionViewCell" customModule="online_store" customModuleProvider="target">
                                         <rect key="frame" x="20" y="20" width="160" height="180"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="180"/>
                                             <autoresizingMask key="autoresizingMask"/>
@@ -240,6 +251,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="77M-vL-nsI" id="GP0-eo-Coq"/>
+                                    <outlet property="delegate" destination="77M-vL-nsI" id="KS6-T7-SFb"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -255,8 +270,8 @@
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="h9F-kb-J3d"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="CategoriesCollectionVeiw" destination="i6e-E0-Olw" id="DFY-kX-SkX"/>
                         <outlet property="buttonMenu" destination="h9F-kb-J3d" id="igs-PU-dig"/>
+                        <outlet property="collectionView" destination="i6e-E0-Olw" id="DFY-kX-SkX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ffu-4e-VB0" userLabel="First Responder" sceneMemberID="firstResponder"/>

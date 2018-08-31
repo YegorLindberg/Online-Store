@@ -13,35 +13,22 @@ import ObjectMapper
 class CategoriesViewController: UIViewController {
     
     @IBOutlet weak var buttonMenu: UIBarButtonItem!
-    @IBOutlet weak var CategoriesCollectionVeiw: UICollectionView!
-    private var categoriesFromJSON = [Category]()
+    @IBOutlet weak var collectionView: UICollectionView!
+    private var categories = [Category]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        CategoriesCollectionVeiw.dataSource = self
-        CategoriesCollectionVeiw.delegate = self
-        
         sideMenu()
         customizeNavBar()
         
-        Alamofire.request("http://82.146.53.185:8101/api/common/category/list?appKey=yx-1PU73oUj6gfk0hNyrNUwhWnmBRld7-SfKAU7Kg6Fpp43anR261KDiQ-MY4P2SRwH_cd4Py1OCY5jpPnY_Viyzja-s18njTLc0E7XcZFwwvi32zX-B91Sdwq1KeZ7m").responseJSON { response in
-            
-            if let json = response.result.value {
-                let jsonObject = json as! Dictionary<String, Any>
-                let metaObject = jsonObject["meta"] as! Dictionary<String, Any>
-                let dataObject = jsonObject["data"] as! Dictionary<String, Any>
-                let categories = dataObject["categories"] as! [Dictionary<String, Any>]
-                
-                self.categoriesFromJSON = Mapper<Category>().mapArray(JSONArray: categories)
-                print("success categories: \(String(describing: metaObject["success"]))")
-                print("dataObject: \(self.categoriesFromJSON[0].title)\n\n")
-            }
+        let categoryApi = CategoryApi()
+        categoryApi.loadCategories { (categories) in
+            self.categories = categories
             DispatchQueue.main.async {
-                self.CategoriesCollectionVeiw?.reloadData()
+                self.collectionView?.reloadData()
             }
         }
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,9 +46,9 @@ class CategoriesViewController: UIViewController {
     }
     
     func customizeNavBar() {
-        navigationController?.navigationBar.tintColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
-        navigationController?.navigationBar.barTintColor = UIColor(red: 71/255, green: 209/255, blue: 255/255, alpha: 1)
-        //        navigationController?.navigationBar.titleTextAttributes = [: UIColor.white]
+        let navigationBarAppearance = UINavigationBar.appearance()
+        navigationBarAppearance.tintColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+        navigationBarAppearance.barTintColor = UIColor(red: 71/255, green: 209/255, blue: 255/255, alpha: 1)
     }
     
 }
@@ -75,12 +62,12 @@ extension CategoriesViewController: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return self.categoriesFromJSON.count
+        return self.categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
-        let category = self.categoriesFromJSON[indexPath.row]
+        let category = self.categories[indexPath.row]
         
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.black.cgColor
