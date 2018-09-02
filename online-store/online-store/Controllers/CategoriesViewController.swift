@@ -15,20 +15,21 @@ class CategoriesViewController: UIViewController {
     @IBOutlet weak var buttonMenu: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
     private var categories = [Category]()
+    private let baseApi = BaseApi()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         sideMenu()
-        customizeNavBar()
         
-        let categoryApi = CategoryApi()
-        categoryApi.loadCategories { (categories) in
+        baseApi.sendRequestToLoadCategories { (categories) in
             self.categories = categories
             DispatchQueue.main.async {
                 self.collectionView?.reloadData()
+                print("view categories")
             }
         }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,13 +45,7 @@ class CategoriesViewController: UIViewController {
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
-    
-    func customizeNavBar() {
-        let navigationBarAppearance = UINavigationBar.appearance()
-        navigationBarAppearance.tintColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
-        navigationBarAppearance.barTintColor = UIColor(red: 71/255, green: 209/255, blue: 255/255, alpha: 1)
-    }
-    
+   
 }
 
 

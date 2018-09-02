@@ -24,6 +24,7 @@
 		CBCFA327212452160043A08A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBCFA325212452160043A08A /* LaunchScreen.storyboard */; };
 		CBCFA332212452160043A08A /* online_storeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCFA331212452160043A08A /* online_storeTests.swift */; };
 		CBCFA33D212452160043A08A /* online_storeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCFA33C212452160043A08A /* online_storeUITests.swift */; };
+		CBF10B95213C302A00BA75AB /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF10B94213C302A00BA75AB /* BaseApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		CBCFA338212452160043A08A /* online-storeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "online-storeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBCFA33C212452160043A08A /* online_storeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = online_storeUITests.swift; sourceTree = "<group>"; };
 		CBCFA33E212452160043A08A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBF10B94213C302A00BA75AB /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			children = (
 				CB064FC32131BAED0088982E /* ProductApi.swift */,
 				CBB5F18F21392E4A005436B1 /* CategoryApi.swift */,
+				CBF10B94213C302A00BA75AB /* BaseApi.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				CB064FC22131B4AF0088982E /* Category.swift in Sources */,
 				CB064FBF213172220088982E /* Product.swift in Sources */,
 				CBCFA3222124520D0043A08A /* online_store.xcdatamodeld in Sources */,
+				CBF10B95213C302A00BA75AB /* BaseApi.swift in Sources */,
 				CBB5F19021392E4A005436B1 /* CategoryApi.swift in Sources */,
 				CB5503A3212D65D10038DB60 /* CategoryCollectionViewCell.swift in Sources */,
 				CB855AF2212D58EF00B507F1 /* CategoriesViewController.swift in Sources */,

@@ -13,9 +13,15 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    private let colorMaxValue = 255
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let navigationBarAppearance = UINavigationBar.appearance()
+        
+        navigationBarAppearance.barTintColor = UIColor(red: 0/255, green: 188/255, blue: 255/255, alpha: 1)
+        navigationBarAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationBarAppearance.tintColor = UIColor.white
+        
         // Override point for customization after application launch.
         return true
     }

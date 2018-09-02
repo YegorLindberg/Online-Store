@@ -17,18 +17,18 @@ class ProductsViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     private var products = [Product]()
+    private let baseApi = BaseApi()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         sideMenu()
-        customizeNavBar()
 
-        let productApi = ProductApi()
-        productApi.loadProducts { (products) in
+        baseApi.sendRequestToLoadProducts { (products) in
             self.products = products
             DispatchQueue.main.async {
                 self.collectionView?.reloadData()
+                print("view products")
             }
         }
         
@@ -46,17 +46,6 @@ class ProductsViewController: UIViewController {
             revealViewController().rearViewRevealWidth = 275
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-    }
-    
-    func customizeNavBar() {
-        //TODO: use UINavigationBar.appearance(), move AppDelegate
-        //        UIApplication.shared.keyWindow?.rootViewController
-        //        UIApplication.shared.delegate
-        let navigationBarAppearance = UINavigationBar.appearance()
-        navigationBarAppearance.tintColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
-        navigationBarAppearance.barTintColor = UIColor(red: 71/255, green: 209/255, blue: 255/255, alpha: 1)
-        
-//        navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
     }
 
 }
