@@ -14,23 +14,25 @@ import ObjectMapper
 class ProductsViewController: UIViewController {
 
     @IBOutlet weak var buttonMenu: UIBarButtonItem!
-    
     @IBOutlet weak var collectionView: UICollectionView!
     private var products = [Product]()
-    private let baseApi = BaseApi()
+    private let productApi = ProductApi()
+    
+    var isLoading = false
+    var isAllLoaded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         sideMenu()
 
-        baseApi.sendRequestToLoadProducts { (products) in
+        productApi.loadProducts(params: nil, handler: { (products) in
             self.products = products
             DispatchQueue.main.async {
                 self.collectionView?.reloadData()
                 print("view products")
             }
-        }
+        })
         
     }
     
@@ -59,6 +61,13 @@ extension ProductsViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return self.products.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if ((indexPath.row > self.products.count - 5) && (!isLoading)) {
+            isLoading = true
+            print("indexPath.row >")
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -15,14 +15,14 @@ class CategoriesViewController: UIViewController {
     @IBOutlet weak var buttonMenu: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
     private var categories = [Category]()
-    private let baseApi = BaseApi()
+    private let categoryApi = CategoryApi()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sideMenu()
+        sideMenu()        
         
-        baseApi.sendRequestToLoadCategories { (categories) in
+        categoryApi.loadCategories(params: nil) { (categories) in
             self.categories = categories
             DispatchQueue.main.async {
                 self.collectionView?.reloadData()

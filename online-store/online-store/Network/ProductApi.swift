@@ -7,24 +7,16 @@
 //
 
 import Foundation
-import CFNetwork
-import Alamofire
 import ObjectMapper
 
-class ProductApi {
+class ProductApi : BaseApi {
 
-    private let productListURL = "http://onlinestore.whitetigersoft.ru/api/common/product/list?appKey="
+    private let productListURL = "common/product/list"
     
-    func loadProducts(relativeUrl: String, params: String, handler: @escaping ([Product]) -> Void) {
-        let complitionURL = productListURL + relativeUrl
-        Alamofire.request(complitionURL).responseJSON { response in
-            if let json = response.result.value {
-                let jsonObject = json as! Dictionary<String, Any>
-                let metaObject = jsonObject["meta"] as! Dictionary<String, Any>
-                
-                let products = Mapper<Product>().mapArray(JSONArray: jsonObject["data"] as! [Dictionary<String, Any>])
-                handler(products)
-            }
+    func loadProducts(params: [String: Any]?, handler: @escaping ([Product]) -> Void) {
+        sendRequest(relativeUrl: productListURL, params: params) { (data) in
+            let products = Mapper<Product>().mapArray(JSONArray: data as! [Dictionary<String, Any>])
+            handler(products)
         }
     }
     
