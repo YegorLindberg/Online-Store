@@ -14,7 +14,7 @@ class CategoryApi: BaseApi {
     private let categoryListURL = "common/category/list"
     
     func loadCategories(params: [String: Any]?, handler: @escaping ([Category]) -> Void) {
-        sendRequest(relativeUrl: categoryListURL, params: params) { (data) in
+        sendRequest(page: 0, relativeUrl: categoryListURL, params: params) { (data) in
             let dataObject = data as! Dictionary<String, Any>
             let categories = Mapper<Category>().mapArray(JSONArray: dataObject["categories"] as! [Dictionary<String, Any>])
             handler(categories)

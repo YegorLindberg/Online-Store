@@ -15,8 +15,10 @@ class ProductsViewController: UIViewController {
 
     @IBOutlet weak var buttonMenu: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
+    private var refresher: UIRefreshControl!
     private var products = [Product]()
     private let productApi = ProductApi()
+    private var currentPage = 0
     
     var isLoading = false
     var isAllLoaded = false
@@ -25,15 +27,29 @@ class ProductsViewController: UIViewController {
         super.viewDidLoad()
         
         sideMenu()
-
-        productApi.loadProducts(params: nil, handler: { (products) in
+        
+        downloadStartData()
+        
+        refresher = UIRefreshControl()
+        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refresher.addTarget(self, action: #selector(ProductsViewController.downloadStartData), for: UIControlEvents.valueChanged)
+        collectionView.addSubview(refresher)
+        
+    }
+    
+    @objc func downloadStartData() {
+        currentPage = 0
+        isAllLoaded = false
+        isLoading = true
+        productApi.loadProducts(page: 0, params: nil, handler: { (products) in
             self.products = products
             DispatchQueue.main.async {
                 self.collectionView?.reloadData()
                 print("view products")
+                self.isLoading = false
+                self.refresher?.endRefreshing()
             }
         })
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -64,9 +80,23 @@ extension ProductsViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if ((indexPath.row > self.products.count - 5) && (!isLoading)) {
+        if ((indexPath.row > self.products.count - 5) && !isLoading && !isAllLoaded) {
             isLoading = true
             print("indexPath.row >")
+            currentPage += 1
+            productApi.loadProducts(page: currentPage, params: nil) { (products) in
+                if products.count == 0 {
+                    self.isAllLoaded = true
+                    print("all is loaded, last page is: \(self.currentPage - 1)")
+                } else {
+                    self.products += products
+                }
+                DispatchQueue.main.async {
+                    self.collectionView?.reloadData()
+                    print("view products with loaded page \(self.currentPage)")
+                    self.isLoading = false
+                }
+            }
         }
     }
     

@@ -13,8 +13,8 @@ class ProductApi : BaseApi {
 
     private let productListURL = "common/product/list"
     
-    func loadProducts(params: [String: Any]?, handler: @escaping ([Product]) -> Void) {
-        sendRequest(relativeUrl: productListURL, params: params) { (data) in
+    func loadProducts(page: Int, params: [String: Any]?, handler: @escaping ([Product]) -> Void) {
+        sendRequest(page: page, relativeUrl: productListURL, params: params) { (data) in
             let products = Mapper<Product>().mapArray(JSONArray: data as! [Dictionary<String, Any>])
             handler(products)
         }
