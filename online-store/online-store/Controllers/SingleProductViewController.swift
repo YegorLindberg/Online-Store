@@ -10,15 +10,21 @@ import UIKit
 
 class SingleProductViewController: UIViewController {
     
-    @IBOutlet weak var productName: UILabel!
+    @IBOutlet weak var productImageView: UIImageView!
+    @IBOutlet weak var labelProductName: UILabel!
+    @IBOutlet weak var labelRating: UILabel!
+    @IBOutlet weak var labelPrice: UILabel!
+    @IBOutlet weak var labelDescription: UILabel!
     
     var product: Product!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        productName.text = product.title
-        
-        
+        self.productImageView.sd_setImage(with: URL(string: ("\(product.imageUrl ?? "Empty Img")")), placeholderImage: UIImage(named: "emptyimg.png"))
+        self.labelProductName.text = product.title
+        self.labelRating.text = (product.rating != nil) ? "Rating: \(product.rating as! Double)" : "Rating is missing"
+        self.labelPrice.text = (product.price != nil) ? "Price: \(product.price as! Int)" : "Price is missing"
+        self.labelDescription.text = "Description:" + ((product.productDescription != "") ? product.productDescription : "is missing.")
     }
     
 
