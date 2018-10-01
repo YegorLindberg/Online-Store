@@ -12,24 +12,34 @@ import ObjectMapper
 
 class CategoriesViewController: UIViewController {
     
-    @IBOutlet weak var buttonMenu: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
-    private var categories = [Category]()
+    private var categories  = [Category]()
     private let categoryApi = CategoryApi()
+    
+    var categoryId: Int?
+    var titleOfVC : String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sideMenu()        
+        titleOfVC == nil ? (self.title = "Categories") : (self.title = titleOfVC)
         
-        categoryApi.loadCategories(params: nil) { (categories) in
+        let arrayOfVC = navigationController?.viewControllers
+        print("count of vc:\(String(describing: arrayOfVC?.count))")
+        
+        if arrayOfVC?.count == 1 {
+            sideMenu()
+        }
+
+        categoryApi.loadCategories(categoryId: categoryId) { (categories) in
             self.categories = categories
             DispatchQueue.main.async {
                 self.collectionView?.reloadData()
                 print("view categories")
             }
         }
-
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,13 +49,20 @@ class CategoriesViewController: UIViewController {
 
     func sideMenu() {
         if revealViewController() != nil {
-            buttonMenu.target = revealViewController()
-            buttonMenu.action = #selector(SWRevealViewController.revealToggle(_:))
+            let menuButton = UIBarButtonItem(title: "Menu",
+                                             style: .done,
+                                             target: revealViewController(),
+                                             action: #selector(SWRevealViewController.revealToggle(_:)))
             revealViewController().rearViewRevealWidth = 275
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.navigationItem.leftBarButtonItem = menuButton
         }
     }
    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+    }
+    
 }
 
 
@@ -72,6 +89,26 @@ extension CategoriesViewController: UICollectionViewDataSource, UICollectionView
         
         return cell
     }
-
-
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let category = categories[indexPath.row]
+        if category.hasSubcategories != 0 {
+            let categoryViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CategoryScreen") as! CategoriesViewController
+            categoryViewController.categoryId = category.categoryId
+            categoryViewController.titleOfVC = category.title
+            self.navigationController?.pushViewController(categoryViewController, animated: true)
+        } else {
+            performSegue(withIdentifier: "ShowProducts", sender: category.categoryId)
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowProducts" {
+            if let selectedCategory = sender as? Int, let destinationViewController = segue.destination as? ProductsViewController {
+                destinationViewController.categoryId = selectedCategory
+            }
+        }
+    }
+    
+    
+    
 }

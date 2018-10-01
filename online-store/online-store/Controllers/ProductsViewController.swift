@@ -13,56 +13,59 @@ import ObjectMapper
 
 class ProductsViewController: UIViewController {
 
-    @IBOutlet weak var buttonMenu: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
     private var refresher: UIRefreshControl!
-    private var products = [Product]()
+    private var products   = [Product]()
     private let productApi = ProductApi()
-    private var currentPage = 0
     
-    var isLoading = false
+    var categoryId: Int?
+    
+    var productDataProvier = ProductDataProvider()
+    
+    //TODO: move to data provider
+    var isLoading   = false
     var isAllLoaded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sideMenu()
+//        productDataProvier.delegate = self
+//        productDataProvier.reloadData()
         
-        downloadStartData()
+        let arrayOfVC = navigationController?.viewControllers
+        print("count of vc:\(String(describing: arrayOfVC?.count))")
         
+        if arrayOfVC?.count == 1 {
+            sideMenu()
+        }
+        
+        addRefresher()
+        reloadData()
+
+    }
+    
+    func addRefresher() {
         refresher = UIRefreshControl()
         refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refresher.addTarget(self, action: #selector(ProductsViewController.downloadStartData), for: UIControlEvents.valueChanged)
+        refresher.addTarget(self, action: #selector(ProductsViewController.reloadData), for: UIControlEvents.valueChanged)
         collectionView.addSubview(refresher)
-        
     }
     
-    @objc func downloadStartData() {
-        currentPage = 0
+    @objc func reloadData() {
         isAllLoaded = false
-        isLoading = true
-        productApi.loadProducts(page: 0, params: nil, handler: { (products) in
-            self.products = products
-            DispatchQueue.main.async {
-                self.collectionView?.reloadData()
-                print("view products")
-                self.isLoading = false
-                self.refresher?.endRefreshing()
-            }
-        })
+        loadNextItems(reload: true)
+        print("reload data: products")
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     func sideMenu() {
         if revealViewController() != nil {
-            buttonMenu.target = revealViewController()
-            buttonMenu.action = #selector(SWRevealViewController.revealToggle(_:))
+            let menuButton = UIBarButtonItem(title: "Menu",
+                                             style: .done,
+                                             target: revealViewController(),
+                                             action: #selector(SWRevealViewController.revealToggle(_:)))
             revealViewController().rearViewRevealWidth = 275
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.navigationItem.leftBarButtonItem = menuButton
         }
     }
 
@@ -82,19 +85,28 @@ extension ProductsViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if ((indexPath.row > self.products.count - 5) && !isLoading && !isAllLoaded) {
             isLoading = true
-            print("indexPath.row >")
-            currentPage += 1
-            productApi.loadProducts(page: currentPage, params: nil) { (products) in
-                if products.count == 0 {
-                    self.isAllLoaded = true
-                    print("all is loaded, last page is: \(self.currentPage - 1)")
-                } else {
-                    self.products += products
-                }
-                DispatchQueue.main.async {
-                    self.collectionView?.reloadData()
-                    print("view products with loaded page \(self.currentPage)")
-                    self.isLoading = false
+            loadNextItems(reload: false)
+//            productDataProvier.loadNextItems()
+        }
+    }
+    
+    func loadNextItems(reload: Bool) {
+        let necessaryOffset = reload ? 0 : self.products.count
+        productApi.loadProducts(offset: necessaryOffset, categoryId: categoryId) { [weak self] (products) in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            if products.count == 0 {
+                strongSelf.isAllLoaded = true
+            } else {
+                strongSelf.products = reload ? products : (strongSelf.products + products)
+            }
+            DispatchQueue.main.async {
+                strongSelf.collectionView?.reloadData()
+                strongSelf.isLoading = false
+                if reload {
+                    strongSelf.refresher?.endRefreshing()
                 }
             }
         }
@@ -115,5 +127,17 @@ extension ProductsViewController: UICollectionViewDataSource, UICollectionViewDe
         cell.ImageViewProduct.sd_setImage(with: URL(string: ("\(product.imageUrl ?? "Empty Img")")), placeholderImage: UIImage(named: "emptyimg.png"))
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let product = products[indexPath.row]
+        performSegue(withIdentifier: "showProduct", sender: product)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showProduct" {
+            if let selectedProduct = sender as? Product, let destinationViewController = segue.destination as? SingleProductViewController {
+                destinationViewController.product = selectedProduct
+            }
+        }
     }
 }

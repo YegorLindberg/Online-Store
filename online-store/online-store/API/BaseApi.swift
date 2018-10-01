@@ -12,10 +12,10 @@ import Alamofire
 
 class BaseApi {
     
-    func sendRequest(page: Int, relativeUrl: String, params: [String: Any]?, handler: @escaping (Any) -> Void) {
-        var absoluteUrl = prepareUrl(relativeUrl: relativeUrl)
-        let resultParams = prepareParams(page: page, params: params, absoluteUrl: &absoluteUrl) //Add app key here
-        Alamofire.request(absoluteUrl, parameters:resultParams).responseJSON { response in
+    func sendRequest(relativeUrl: String, params: [String: Any]?, handler: @escaping (Any) -> Void) {
+        let absoluteUrl = prepareUrl(relativeUrl: relativeUrl)
+        let requestParams = prepareParams(params: params ?? [:])
+        Alamofire.request(absoluteUrl, parameters: requestParams).responseJSON { response in
             if let json = response.result.value {
                 let jsonObject = json as! Dictionary<String, Any>
                 let metaObject = jsonObject["meta"] as! Dictionary<String, Any>
@@ -33,19 +33,14 @@ class BaseApi {
     }
     
     func prepareUrl(relativeUrl: String) -> String {
-        return "http://onlinestore.whitetigersoft.ru/api/" + relativeUrl + "?appKey=";
+        return "http://onlinestore.whitetigersoft.ru/api/" + relativeUrl;
     }
     
-    func prepareParams(page: Int, params: [String: Any]?, absoluteUrl: inout String) -> [String: Any]? {
+    func prepareParams(params: [String: Any]) -> [String: Any] {
         let appKey = "yx-1PU73oUj6gfk0hNyrNUwhWnmBRld7-SfKAU7Kg6Fpp43anR261KDiQ-MY4P2SRwH_cd4Py1OCY5jpPnY_Viyzja-s18njTLc0E7XcZFwwvi32zX-B91Sdwq1KeZ7m"
-        if page > 0 {
-            let countOfProductsOnPage = 15
-            let productCount = page * countOfProductsOnPage
-            absoluteUrl = absoluteUrl + appKey + "&offset=\(productCount)"
-        } else {
-            absoluteUrl += appKey
-        }
-        return params
+        var resultParams = params
+        resultParams["appKey"] = appKey
+        return resultParams
     }
     
 }

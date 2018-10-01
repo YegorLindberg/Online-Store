@@ -12,9 +12,12 @@ import ObjectMapper
 class CategoryApi: BaseApi {
     
     private let categoryListURL = "common/category/list"
-    
-    func loadCategories(params: [String: Any]?, handler: @escaping ([Category]) -> Void) {
-        sendRequest(page: 0, relativeUrl: categoryListURL, params: params) { (data) in
+
+    func loadCategories(categoryId: Int?, handler: @escaping ([Category]) -> Void) {
+        let params = [
+                        "categoryId": categoryId ?? 0,
+                     ]
+        sendRequest(relativeUrl: categoryListURL, params: params) { (data) in
             let dataObject = data as! Dictionary<String, Any>
             let categories = Mapper<Category>().mapArray(JSONArray: dataObject["categories"] as! [Dictionary<String, Any>])
             handler(categories)
