@@ -8,36 +8,40 @@
 
 import Foundation
 
-//TODO: declare protocol DataProviderDelegate
-//dataProvider(_ dataProvider: BaseDataProvider, onItemsUpdated items: [..])
-
-//protocol DataProviderDelegate {
-//    <#requirements#>
-//}
+protocol DataProviderDelegate {
+    func dataProvider(_ dataProvider: BaseDataProvider, onItemsUpdated items: [Any])
+}
 
 class BaseDataProvider {
-    //items
-    var items = [Any]()
-    //TODO: rename to delegate
-    var delegateProductsVC: ProductsViewController?
-//    var delegate: DataProviderDelegate
     
-    // (+) reloadData (clear data and call loadNextItems)
+    var delegate: DataProviderDelegate?
+    var isLoading   = false
+    var isAllLoaded = false
+    var items       = [Any]()
+    
     func reloadData() {
-        items = [] //clear data
+        self.items = []
+        self.isAllLoaded = false
         loadNextItems()
     }
     //loadNextItems - abstract, call API and call onItemsLoaded in API handler
     func loadNextItems() -> Bool {
-        //TODO: add isLoading and isAllLoaded checking and settings
+        if self.isLoading || self.isAllLoaded {
+            return false
+        }
+        self.isLoading = true
         return true
     }
     
     //onItemsLoaded (newItems), add newItems to items, call delegate
     func onItemsLoaded(_ newItems: [Any]) {
-        //TODO: use self
-        items += newItems
-        //TODO: call delegate about new items
-        //TODO: add isLoading and isAllLoaded settings
+        if newItems.count == 0 {
+            self.isAllLoaded = true
+        } else {
+            self.items += newItems
+        }
+        self.isLoading = false
+        delegate?.dataProvider(self, onItemsUpdated: self.items)
     }
+    
 }

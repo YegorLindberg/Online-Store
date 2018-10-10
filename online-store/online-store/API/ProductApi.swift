@@ -15,7 +15,7 @@ class ProductApi : BaseApi {
     
     func loadProducts(offset: Int?, categoryId: Int?, handler: @escaping ([Product]) -> Void) {
         let params = [
-                        "offset": offset ?? 0,
+                        "offset"    : offset ?? 0,
                         "categoryId": categoryId ?? 0,
                      ]
         sendRequest(relativeUrl: productListURL, params: params) { (data) in

@@ -22,15 +22,11 @@ class ProductsViewController: UIViewController {
     
     var productDataProvier = ProductDataProvider()
     
-    //TODO: move to data provider
-    var isLoading   = false
-    var isAllLoaded = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        productDataProvier.delegate = self
-//        productDataProvier.reloadData()
+        productDataProvier.delegate = self
+        productDataProvier.reloadData()
         
         let arrayOfVC = navigationController?.viewControllers
         print("count of vc:\(String(describing: arrayOfVC?.count))")
@@ -52,8 +48,7 @@ class ProductsViewController: UIViewController {
     }
     
     @objc func reloadData() {
-        isAllLoaded = false
-        loadNextItems(reload: true)
+        productDataProvier.reloadData()
         print("reload data: products")
     }
     
@@ -71,7 +66,7 @@ class ProductsViewController: UIViewController {
 
 }
 
-extension ProductsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension ProductsViewController: UICollectionViewDataSource, UICollectionViewDelegate, DataProviderDelegate {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -83,32 +78,8 @@ extension ProductsViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if ((indexPath.row > self.products.count - 5) && !isLoading && !isAllLoaded) {
-            isLoading = true
-            loadNextItems(reload: false)
-//            productDataProvier.loadNextItems()
-        }
-    }
-    
-    func loadNextItems(reload: Bool) {
-        let necessaryOffset = reload ? 0 : self.products.count
-        productApi.loadProducts(offset: necessaryOffset, categoryId: categoryId) { [weak self] (products) in
-            guard let strongSelf = self else {
-                return
-            }
-            
-            if products.count == 0 {
-                strongSelf.isAllLoaded = true
-            } else {
-                strongSelf.products = reload ? products : (strongSelf.products + products)
-            }
-            DispatchQueue.main.async {
-                strongSelf.collectionView?.reloadData()
-                strongSelf.isLoading = false
-                if reload {
-                    strongSelf.refresher?.endRefreshing()
-                }
-            }
+        if indexPath.row > self.products.count - 5 {
+            productDataProvier.loadNextItems()
         }
     }
     
@@ -140,4 +111,14 @@ extension ProductsViewController: UICollectionViewDataSource, UICollectionViewDe
             }
         }
     }
+    
+    func dataProvider(_ dataProvider: BaseDataProvider, onItemsUpdated items: [Any]) {
+        self.products = items as! [Product]
+        print("products count: \(self.products.count)")
+        DispatchQueue.main.async {
+            self.collectionView?.reloadData()
+            self.refresher?.endRefreshing()
+        }
+    }
+    
 }

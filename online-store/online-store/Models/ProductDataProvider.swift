@@ -9,6 +9,7 @@
 import Foundation
 
 class ProductDataProvider : BaseDataProvider {
+        
     var categoryId: Int?
 
     override func loadNextItems() -> Bool {

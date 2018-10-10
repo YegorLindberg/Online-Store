@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SDWebImage
 import ObjectMapper
 
 class CategoriesViewController: UIViewController {
@@ -107,8 +108,7 @@ extension CategoriesViewController: UICollectionViewDataSource, UICollectionView
                 destinationViewController.categoryId = selectedCategory
             }
         }
-    }
-    
+    }    
     
     
 }
