@@ -11,7 +11,8 @@ import Alamofire
 import SDWebImage
 import ObjectMapper
 
-class ProductsViewController: UIViewController {
+//TODO: show HUD on data loading, use MBProgressHud
+class ProductsViewController: BaseViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     private var refresher: UIRefreshControl!
@@ -25,44 +26,26 @@ class ProductsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        productDataProvier.delegate = self
-        productDataProvier.reloadData()
+        self.productDataProvier.delegate = self
+        self.productDataProvier.reloadData()
         
-        let arrayOfVC = navigationController?.viewControllers
-        print("count of vc:\(String(describing: arrayOfVC?.count))")
-        
-        if arrayOfVC?.count == 1 {
-            sideMenu()
-        }
-        
+        tryShowSideMenuButton()
         addRefresher()
-        reloadData()
 
     }
     
     func addRefresher() {
-        refresher = UIRefreshControl()
-        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refresher.addTarget(self, action: #selector(ProductsViewController.reloadData), for: UIControlEvents.valueChanged)
-        collectionView.addSubview(refresher)
+        self.refresher = UIRefreshControl()
+        self.refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refresher.addTarget(self, action: #selector(ProductsViewController.reloadData), for: UIControlEvents.valueChanged)
+        self.collectionView.addSubview(refresher)
     }
     
     @objc func reloadData() {
-        productDataProvier.reloadData()
+        self.productDataProvier.reloadData()
         print("reload data: products")
     }
-    
-    func sideMenu() {
-        if revealViewController() != nil {
-            let menuButton = UIBarButtonItem(title: "Menu",
-                                             style: .done,
-                                             target: revealViewController(),
-                                             action: #selector(SWRevealViewController.revealToggle(_:)))
-            revealViewController().rearViewRevealWidth = 275
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            self.navigationItem.leftBarButtonItem = menuButton
-        }
-    }
+
 
 }
 
@@ -79,7 +62,7 @@ extension ProductsViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row > self.products.count - 5 {
-            productDataProvier.loadNextItems()
+            self.productDataProvier.loadNextItems()
         }
     }
     
@@ -115,6 +98,7 @@ extension ProductsViewController: UICollectionViewDataSource, UICollectionViewDe
     func dataProvider(_ dataProvider: BaseDataProvider, onItemsUpdated items: [Any]) {
         self.products = items as! [Product]
         print("products count: \(self.products.count)")
+        //TODO: check queue, try to delete DispatchQueue.main.async
         DispatchQueue.main.async {
             self.collectionView?.reloadData()
             self.refresher?.endRefreshing()

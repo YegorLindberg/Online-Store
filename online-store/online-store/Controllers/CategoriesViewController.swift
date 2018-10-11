@@ -11,7 +11,7 @@ import Alamofire
 import SDWebImage
 import ObjectMapper
 
-class CategoriesViewController: UIViewController {
+class CategoriesViewController: BaseViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     private var categories  = [Category]()
@@ -24,16 +24,11 @@ class CategoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleOfVC == nil ? (self.title = "Categories") : (self.title = titleOfVC)
+        self.titleOfVC == nil ? (self.title = "Categories") : (self.title = titleOfVC)
         
-        let arrayOfVC = navigationController?.viewControllers
-        print("count of vc:\(String(describing: arrayOfVC?.count))")
-        
-        if arrayOfVC?.count == 1 {
-            sideMenu()
-        }
+        tryShowSideMenuButton()
 
-        categoryApi.loadCategories(categoryId: categoryId) { (categories) in
+        self.categoryApi.loadCategories(categoryId: categoryId) { (categories) in
             self.categories = categories
             DispatchQueue.main.async {
                 self.collectionView?.reloadData()
@@ -48,21 +43,6 @@ class CategoriesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func sideMenu() {
-        if revealViewController() != nil {
-            let menuButton = UIBarButtonItem(title: "Menu",
-                                             style: .done,
-                                             target: revealViewController(),
-                                             action: #selector(SWRevealViewController.revealToggle(_:)))
-            revealViewController().rearViewRevealWidth = 275
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            self.navigationItem.leftBarButtonItem = menuButton
-        }
-    }
-   
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-    }
     
 }
 

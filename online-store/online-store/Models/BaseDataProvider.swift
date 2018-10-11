@@ -24,7 +24,7 @@ class BaseDataProvider {
         self.isAllLoaded = false
         loadNextItems()
     }
-    //loadNextItems - abstract, call API and call onItemsLoaded in API handler
+    
     func loadNextItems() -> Bool {
         if self.isLoading || self.isAllLoaded {
             return false
@@ -33,7 +33,6 @@ class BaseDataProvider {
         return true
     }
     
-    //onItemsLoaded (newItems), add newItems to items, call delegate
     func onItemsLoaded(_ newItems: [Any]) {
         if newItems.count == 0 {
             self.isAllLoaded = true

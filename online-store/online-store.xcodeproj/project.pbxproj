@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		758A350C5FC34265A7F88201 /* Pods_online_store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38EA80C399668023BE1D6EE5 /* Pods_online_store.framework */; };
 		CB064FC42131BAED0088982E /* ProductApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB064FC32131BAED0088982E /* ProductApi.swift */; };
+		CB14CF47216F9793002CFD0F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB14CF46216F9793002CFD0F /* BaseViewController.swift */; };
 		CB34134421356142001E0E7B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34134221356142001E0E7B /* SWRevealViewController.m */; };
 		CB3413462135642E001E0E7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB3413452135642E001E0E7B /* Assets.xcassets */; };
 		CB5503A3212D65D10038DB60 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5503A2212D65D10038DB60 /* CategoryCollectionViewCell.swift */; };
@@ -52,6 +53,7 @@
 		5617A18AED03DC888A5B480A /* Pods-online-store.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-online-store.debug.xcconfig"; path = "Pods/Target Support Files/Pods-online-store/Pods-online-store.debug.xcconfig"; sourceTree = "<group>"; };
 		C8DFE9A1697F7410D98CA289 /* Pods-online-store.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-online-store.release.xcconfig"; path = "Pods/Target Support Files/Pods-online-store/Pods-online-store.release.xcconfig"; sourceTree = "<group>"; };
 		CB064FC32131BAED0088982E /* ProductApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductApi.swift; sourceTree = "<group>"; };
+		CB14CF46216F9793002CFD0F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CB34134121356141001E0E7B /* online-store-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "online-store-Bridging-Header.h"; sourceTree = "<group>"; };
 		CB34134221356142001E0E7B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		CB34134321356142001E0E7B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				CB89D87821245EFE009F5BEC /* ProductsViewController.swift */,
 				CB855AF1212D58EF00B507F1 /* CategoriesViewController.swift */,
 				CBCF784A21628906001E3D1C /* SingleProductViewController.swift */,
+				CB14CF46216F9793002CFD0F /* BaseViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				CB34134421356142001E0E7B /* SWRevealViewController.m in Sources */,
 				CB89D87C21248180009F5BEC /* ProductCollectionViewCell.swift in Sources */,
 				CBCFA31A2124520D0043A08A /* AppDelegate.swift in Sources */,
+				CB14CF47216F9793002CFD0F /* BaseViewController.swift in Sources */,
 				CBCF784B21628906001E3D1C /* SingleProductViewController.swift in Sources */,
 				CB9A08ED2153C9AA00E4BEE5 /* Product.swift in Sources */,
 			);
