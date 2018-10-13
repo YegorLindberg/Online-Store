@@ -17,7 +17,7 @@ class ProductDataProvider : BaseDataProvider {
             return false
         }
         let productApi = ProductApi()
-        productApi.loadProducts(offset: self.items.count, categoryId: nil) { (products) in
+        productApi.loadProducts(offset: self.items.count, categoryId: self.categoryId) { (products) in
             self.onItemsLoaded(products)
         }
         return true

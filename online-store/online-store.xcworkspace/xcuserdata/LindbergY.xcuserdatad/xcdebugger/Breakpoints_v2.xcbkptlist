@@ -10,11 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "online-store/Controllers/ProductsViewController.swift"
-            timestampString = "560940481.986451"
+            timestampString = "561021879.2924089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120">
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "dataProvider(_:onItemsUpdated:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

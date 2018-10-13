@@ -27,7 +27,8 @@ class ProductsViewController: BaseViewController {
         super.viewDidLoad()
         
         self.productDataProvier.delegate = self
-        self.productDataProvier.reloadData()
+        self.productDataProvier.categoryId = self.categoryId
+        self.productDataProvier.reloadData()        
         
         tryShowSideMenuButton()
         addRefresher()
