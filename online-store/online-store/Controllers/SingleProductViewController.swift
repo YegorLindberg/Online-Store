@@ -25,7 +25,7 @@ class SingleProductViewController: UIViewController {
         self.labelProductName.text = product.title
         self.labelRating.text = (product.rating != nil) ? "Rating: \(product.rating as! Double)" : "Rating is missing"
         self.labelPrice.text = (product.price != nil) ? "Price: \(product.price as! Int)" : "Price is missing"
-        self.labelDescription.text = "Description:" + ((product.productDescription != "") ? product.productDescription : "is missing.")
+        self.labelDescription.text = "Description:" + ((product.productDescription != nil) ? product.productDescription : "is missing.")
     }
     
 

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DE7E04421B6F4E1006AAD7E /* AppManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE7E04321B6F4E1006AAD7E /* AppManagement.swift */; };
+		3DE7E04621B6F602006AAD7E /* ShoppingCartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE7E04521B6F602006AAD7E /* ShoppingCartItem.swift */; };
+		3DE7E04821B6F614006AAD7E /* ShoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE7E04721B6F614006AAD7E /* ShoppingCart.swift */; };
 		758A350C5FC34265A7F88201 /* Pods_online_store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38EA80C399668023BE1D6EE5 /* Pods_online_store.framework */; };
 		CB064FC42131BAED0088982E /* ProductApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB064FC32131BAED0088982E /* ProductApi.swift */; };
 		CB14CF47216F9793002CFD0F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB14CF46216F9793002CFD0F /* BaseViewController.swift */; };
@@ -50,6 +53,9 @@
 
 /* Begin PBXFileReference section */
 		38EA80C399668023BE1D6EE5 /* Pods_online_store.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_online_store.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DE7E04321B6F4E1006AAD7E /* AppManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManagement.swift; sourceTree = "<group>"; };
+		3DE7E04521B6F602006AAD7E /* ShoppingCartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartItem.swift; sourceTree = "<group>"; };
+		3DE7E04721B6F614006AAD7E /* ShoppingCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCart.swift; sourceTree = "<group>"; };
 		5617A18AED03DC888A5B480A /* Pods-online-store.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-online-store.debug.xcconfig"; path = "Pods/Target Support Files/Pods-online-store/Pods-online-store.debug.xcconfig"; sourceTree = "<group>"; };
 		C8DFE9A1697F7410D98CA289 /* Pods-online-store.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-online-store.release.xcconfig"; path = "Pods/Target Support Files/Pods-online-store/Pods-online-store.release.xcconfig"; sourceTree = "<group>"; };
 		CB064FC32131BAED0088982E /* ProductApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductApi.swift; sourceTree = "<group>"; };
@@ -109,6 +115,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DE7E04121B6F40A006AAD7E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CB064FC0213172740088982E /* API */,
+				CB9A08E92153C9A900E4BEE5 /* Models */,
+				3DE7E04221B6F4A5006AAD7E /* ShoppingCart */,
+			);
+			name = Model;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		3DE7E04221B6F4A5006AAD7E /* ShoppingCart */ = {
+			isa = PBXGroup;
+			children = (
+				3DE7E04521B6F602006AAD7E /* ShoppingCartItem.swift */,
+				3DE7E04721B6F614006AAD7E /* ShoppingCart.swift */,
+			);
+			path = ShoppingCart;
+			sourceTree = "<group>";
+		};
 		589CB5FCDA9D1ED058687FF7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,9 +231,9 @@
 		CBCFA3182124520D0043A08A /* online-store */ = {
 			isa = PBXGroup;
 			children = (
-				CB9A08E92153C9A900E4BEE5 /* Models */,
+				3DE7E04121B6F40A006AAD7E /* Model */,
+				3DE7E04321B6F4E1006AAD7E /* AppManagement.swift */,
 				CB3413402135611B001E0E7B /* SWRevealViewController */,
-				CB064FC0213172740088982E /* API */,
 				CB064FBD213171320088982E /* Views */,
 				CB89D87A21245F13009F5BEC /* Controllers */,
 				CBCFA3192124520D0043A08A /* AppDelegate.swift */,
@@ -422,9 +448,12 @@
 				CB855AF2212D58EF00B507F1 /* CategoriesViewController.swift in Sources */,
 				CB9A08F12153CC0000E4BEE5 /* ProductDataProvider.swift in Sources */,
 				CB9A08EC2153C9AA00E4BEE5 /* Category.swift in Sources */,
+				3DE7E04621B6F602006AAD7E /* ShoppingCartItem.swift in Sources */,
 				CB34134421356142001E0E7B /* SWRevealViewController.m in Sources */,
 				CB89D87C21248180009F5BEC /* ProductCollectionViewCell.swift in Sources */,
 				CBCFA31A2124520D0043A08A /* AppDelegate.swift in Sources */,
+				3DE7E04421B6F4E1006AAD7E /* AppManagement.swift in Sources */,
+				3DE7E04821B6F614006AAD7E /* ShoppingCart.swift in Sources */,
 				CB14CF47216F9793002CFD0F /* BaseViewController.swift in Sources */,
 				CBCF784B21628906001E3D1C /* SingleProductViewController.swift in Sources */,
 				CB9A08ED2153C9AA00E4BEE5 /* Product.swift in Sources */,

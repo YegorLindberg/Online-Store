@@ -9,7 +9,7 @@
 import ObjectMapper
 
 class Product: Mappable {
-    var productId:          Int?
+    var productId:          Int!
     var title:              String!
     var productDescription: String!
     var price:              Int?
