@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class SingleProductViewController: UIViewController {
+class SingleProductViewController: BaseViewController {
     
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var labelProductName: UILabel!
@@ -21,6 +21,7 @@ class SingleProductViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showSideCartButton()
         self.productImageView.sd_setImage(with: URL(string: ("\(product.imageUrl ?? "Empty Img")")), placeholderImage: UIImage(named: "emptyimg.png"))
         self.labelProductName.text = product.title
         self.labelRating.text = (product.rating != nil) ? "Rating: \(product.rating as! Double)" : "Rating is missing"

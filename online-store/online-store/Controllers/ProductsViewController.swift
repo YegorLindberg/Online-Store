@@ -31,6 +31,7 @@ class ProductsViewController: BaseViewController {
         self.productDataProvier.reloadData()        
         
         tryShowSideMenuButton()
+        showSideCartButton()
         addRefresher()
 
     }

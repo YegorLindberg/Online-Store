@@ -12,17 +12,18 @@ class ShoppingCartItem: NSObject {
     //TODO: add Product
     var product: Product!
     //TODO: add count
-    var countOfProduct: Int!
+    var productCount: Int!
     
-    func addCartItem(product: Product) {
+    init (_ product: Product) {
         self.product = product
-        countOfProduct = 1
+        productCount = 1
     }
+    
     func addOneItem() {
-        self.countOfProduct += 1
+        self.productCount += 1
     }
     func removeOneItem() {
-        self.countOfProduct -= 1
+        self.productCount -= 1
     }    
     
 }

@@ -8,24 +8,33 @@
 
 import UIKit
 
-class ShoppingCart: NSObject {        
+class ShoppingCart: NSObject, NSCoding {
+    
+    func encode(with aCoder: NSCoder) {
+        //
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+//        self.shoppingCartItems = aDecoder.decodeObject(forKey: <#T##String#>)
+    }
+    
     
     //TODO: save array of ShoppingCartItem's
     var shoppingCartItems = [ShoppingCartItem]()
     
     //addProduct
-    func addProduct(product: ShoppingCartItem) {
-        if let index = shoppingCartItems.index(where: {$0.product.productId == product.product.productId}) {
+    func addProduct(product: Product) {
+        if let index = shoppingCartItems.index(where: {$0.product.productId == product.productId}) {
             shoppingCartItems[index].addOneItem()
-        } else {
-            shoppingCartItems.append(product)
+        } else {            
+            shoppingCartItems.append(ShoppingCartItem(product))
         }
     }
     
     //removeProduct
-    func removeProduct(product: ShoppingCartItem) -> Bool {
-        if let index = shoppingCartItems.index(where: {$0.product.productId == product.product.productId}) {
-            if shoppingCartItems[index].countOfProduct == 1 {
+    func removeProduct(product: Product) -> Bool {
+        if let index = shoppingCartItems.index(where: {$0.product.productId == product.productId}) {
+            if shoppingCartItems[index].productCount == 1 {
                 shoppingCartItems.remove(at: index)
             } else {
                 shoppingCartItems[index].removeOneItem()
@@ -35,12 +44,18 @@ class ShoppingCart: NSObject {
         return false
     }
     
-    func countProductsInCart() {
-        
+    func countProductsInCart() -> Int {
+        return shoppingCartItems.count
     }
     
-    //save
-    //load
+    //save in UserDefaults
+    
+    //load from UserDefaults
+    
     //use UserDefaults
-    //serialize to json or to xml via NSCoding
+    
+    //serialize array to json or to xml via NSCoding
+
+    
+    
 }

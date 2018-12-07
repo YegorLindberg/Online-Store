@@ -22,4 +22,21 @@ class BaseViewController: UIViewController {
         }
     }
 
+    func showSideCartButton() {
+        let cartButton = UIBarButtonItem(title: "Cart",
+                                         style: .done,
+                                         target: self,
+                                         action: #selector(showCartView))
+        //        self.view.addGestureRecognizer()
+        self.navigationItem.rightBarButtonItem = cartButton
+        
+    }
+    
+    @objc func showCartView() {
+        //segue
+        let cartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CartScreen") as! CartViewController
+        self.navigationController?.pushViewController(cartViewController, animated: true)
+        print("Cart activate")
+    }
+    
 }
