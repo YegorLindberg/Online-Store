@@ -117,7 +117,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3DE7E04121B6F40A006AAD7E /* Model */ = {
+		3D3B822D21BB100A003925D7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				CB064FC0213172740088982E /* API */,
@@ -125,8 +125,7 @@
 				3DE7E04221B6F4A5006AAD7E /* ShoppingCart */,
 				3DFF3E2221B99CF000C6259C /* App.swift */,
 			);
-			name = Model;
-			path = "New Group";
+			path = Model;
 			sourceTree = "<group>";
 		};
 		3DE7E04221B6F4A5006AAD7E /* ShoppingCart */ = {
@@ -235,7 +234,7 @@
 		CBCFA3182124520D0043A08A /* online-store */ = {
 			isa = PBXGroup;
 			children = (
-				3DE7E04121B6F40A006AAD7E /* Model */,
+				3D3B822D21BB100A003925D7 /* Model */,
 				CB3413402135611B001E0E7B /* SWRevealViewController */,
 				CB89D87A21245F13009F5BEC /* Controllers */,
 				CB064FBD213171320088982E /* Views */,
