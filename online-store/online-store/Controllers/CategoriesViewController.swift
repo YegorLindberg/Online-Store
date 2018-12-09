@@ -61,13 +61,9 @@ extension CategoriesViewController: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
         let category = self.categories[indexPath.row]
-        
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.black.cgColor
-        cell.labelCategoryName.text = category.title
-        
-        cell.categoryImageView.sd_setImage(with: URL(string: ("\(category.imageUrl ?? "Empty Img")")), placeholderImage: UIImage(named: "emptyimg.png"))
-        
+        cell.populate(category: category)
         return cell
     }
     

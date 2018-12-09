@@ -11,13 +11,18 @@ import SDWebImage
 
 class SingleProductViewController: BaseViewController {
     
+    var product: Product!
+    
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var labelProductName: UILabel!
     @IBOutlet weak var labelRating: UILabel!
     @IBOutlet weak var labelPrice: UILabel!
     @IBOutlet weak var labelDescription: UILabel!
     
-    var product: Product!
+    @IBAction func addProductButtonTapped(_ sender: UIButton) {
+        App.appManagement.shoppingCart.addProduct(product: self.product)
+        print(App.appManagement.shoppingCart.countProductsInCart(), " - products count in cart.")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

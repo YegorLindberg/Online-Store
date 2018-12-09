@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D66B3F821BD2D6500BECD36 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D66B3F721BD2D6500BECD36 /* CartTableViewCell.swift */; };
 		3DE7E04621B6F602006AAD7E /* ShoppingCartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE7E04521B6F602006AAD7E /* ShoppingCartItem.swift */; };
 		3DE7E04821B6F614006AAD7E /* ShoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE7E04721B6F614006AAD7E /* ShoppingCart.swift */; };
 		3DFF3E2121B929AF00C6259C /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFF3E2021B929AF00C6259C /* CartViewController.swift */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		38EA80C399668023BE1D6EE5 /* Pods_online_store.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_online_store.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D66B3F721BD2D6500BECD36 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		3DE7E04521B6F602006AAD7E /* ShoppingCartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartItem.swift; sourceTree = "<group>"; };
 		3DE7E04721B6F614006AAD7E /* ShoppingCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCart.swift; sourceTree = "<group>"; };
 		3DFF3E2021B929AF00C6259C /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				CB3413452135642E001E0E7B /* Assets.xcassets */,
 				CB5503A2212D65D10038DB60 /* CategoryCollectionViewCell.swift */,
 				CB89D87B21248180009F5BEC /* ProductCollectionViewCell.swift */,
+				3D66B3F721BD2D6500BECD36 /* CartTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D66B3F821BD2D6500BECD36 /* CartTableViewCell.swift in Sources */,
 				CB9A08EF2153C9C500E4BEE5 /* BaseDataProvider.swift in Sources */,
 				CB064FC42131BAED0088982E /* ProductApi.swift in Sources */,
 				CB89D87921245EFE009F5BEC /* ProductsViewController.swift in Sources */,

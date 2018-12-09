@@ -8,15 +8,15 @@
 
 import UIKit
 
-class ShoppingCart: NSObject, NSCoding {
+class ShoppingCart: NSObject { //, NSCoding
     
-    func encode(with aCoder: NSCoder) {
-        //
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-//        self.shoppingCartItems = aDecoder.decodeObject(forKey: <#T##String#>)
-    }
+//    func encode(with aCoder: NSCoder) {
+//        //
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+////        self.shoppingCartItems = aDecoder.decodeObject(forKey: <#T##String#>)
+//    }
     
     
     //TODO: save array of ShoppingCartItem's

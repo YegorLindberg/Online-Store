@@ -9,13 +9,17 @@
 import UIKit
 
 class App: NSObject {
+    
     //TODO: add product api and category api
-    var productApi: ProductApi!
-    var categoryApi: CategoryApi!
+    var productApi = ProductApi()
+    var categoryApi = CategoryApi()
     
     //TODO: ShoppingCart
-    var shoppingCart: ShoppingCart!
+    var shoppingCart = ShoppingCart()
     
     //TODO: add singleton method instance
-    
+    static let appManagement = App()
+    private override init(){}
 }
+
+

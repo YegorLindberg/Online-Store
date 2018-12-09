@@ -13,4 +13,9 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var categoryImageView: UIImageView!
     @IBOutlet weak var labelCategoryName: UILabel!
     
+    func populate(category: Category) {
+        labelCategoryName.text = category.title
+        
+        categoryImageView.sd_setImage(with: URL(string: ("\(category.imageUrl ?? "Empty Img")")), placeholderImage: UIImage(named: "emptyimg.png"))
+    }
 }

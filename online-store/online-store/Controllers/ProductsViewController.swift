@@ -48,8 +48,8 @@ class ProductsViewController: BaseViewController {
         print("reload data: products")
     }
 
-
 }
+
 
 extension ProductsViewController: UICollectionViewDataSource, UICollectionViewDelegate, DataProviderDelegate {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -71,17 +71,9 @@ extension ProductsViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCollectionViewCell
         let product = self.products[indexPath.row]
-        
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.black.cgColor
-        cell.labelNameProduct.text = product.title
-        
-        cell.labelRating.text = (product.rating != nil) ? "Rating: \(product.rating as! Double)" : "Rating is missing"
-        
-        cell.labelPrice.text = (product.price != nil) ? "Price: \(product.price as! Int)" : "Price is missing"
-        
-        cell.ImageViewProduct.sd_setImage(with: URL(string: ("\(product.imageUrl ?? "Empty Img")")), placeholderImage: UIImage(named: "emptyimg.png"))
-        
+        cell.populate(product: product)
         return cell
     }
     
