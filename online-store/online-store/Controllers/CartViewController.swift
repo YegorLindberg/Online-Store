@@ -26,8 +26,8 @@ class CartViewController: BaseViewController {
 }
 
 
-extension CartViewController: UITableViewDataSource, UITableViewDelegate {
-    
+extension CartViewController: UITableViewDataSource, UITableViewDelegate, CartCellDelegate {
+
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -40,6 +40,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableCell") as! CartTableViewCell
         let productItem = cartItems[indexPath.row]
+        cell.cellDelegate = self
         cell.populate(with: productItem)
         return cell
     }
@@ -47,6 +48,31 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(110)
     }
+
+    func didPressPlus(_ sender: UIButton) {
+        if let indexPath = getCurrentCellIndexPath(sender) {
+            App.appManagement.shoppingCart.addProduct(product: cartItems[indexPath.row].product)
+            self.cartItems = App.appManagement.shoppingCart.shoppingCartItems
+            tableView.reloadData()
+        }
+    }
     
+    func didPressMinus(_ sender: UIButton) {
+        if let indexPath = getCurrentCellIndexPath(sender) {
+            if (App.appManagement.shoppingCart.removeProduct(product: cartItems[indexPath.row].product)) {
+                self.cartItems = App.appManagement.shoppingCart.shoppingCartItems
+                tableView.reloadData()
+            }
+        }
+    }
+    
+    func getCurrentCellIndexPath(_ sender: UIButton) -> IndexPath? {
+        let buttonPosition = sender.convert(CGPoint.zero, to: tableView)
+        if let indexPath: IndexPath = tableView.indexPathForRow(at: buttonPosition) {
+            return indexPath
+        }
+        return nil
+    }
+
     
 }

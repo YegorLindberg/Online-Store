@@ -7,16 +7,9 @@
 //
 
 import UIKit
+import ObjectMapper
 
-class ShoppingCart: NSObject { //, NSCoding
-    
-//    func encode(with aCoder: NSCoder) {
-//        //
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-////        self.shoppingCartItems = aDecoder.decodeObject(forKey: <#T##String#>)
-//    }
+class ShoppingCart: NSObject, Codable {
     
     
     //TODO: save array of ShoppingCartItem's
@@ -50,12 +43,36 @@ class ShoppingCart: NSObject { //, NSCoding
     
     //save in UserDefaults
     
+    
+    
+    func saveShoppingCart() {
+        do {
+            let someItems = try JSONEncoder().encode(shoppingCartItems)
+            UserDefaults.standard.setValue(someItems, forKey: "items")
+        } catch let error {
+            print("Error: ", error)
+        }
+        
+    }
+    
     //load from UserDefaults
-    
-    //use UserDefaults
-    
-    //serialize array to json or to xml via NSCoding
+    func loadData() {
+        guard let data = UserDefaults.standard.object(forKey: "items") as? Data else {
+            return
+        }
+        do {
+            let someItems = try JSONDecoder().decode([ShoppingCartItem].self, from: data)
+            if someItems.count > 0 {
+                print(someItems[0].product.title)
+                self.shoppingCartItems = someItems
+            } else {
+                print("someItems have 0 elements.")
+            }
+        } catch let error {
+            print("Error: ", error)
+        }
 
-    
+    }
+
     
 }

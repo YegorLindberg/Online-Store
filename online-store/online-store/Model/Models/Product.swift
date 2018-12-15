@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-class Product: Mappable {
+class Product: Mappable, Codable {
     var productId:          Int!
     var title:              String!
     var productDescription: String!

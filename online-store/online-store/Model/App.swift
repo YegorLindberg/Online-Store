@@ -20,6 +20,8 @@ class App: NSObject {
     //TODO: add singleton method instance
     static let appManagement = App()
     private override init(){}
+    
+    
 }
 
 

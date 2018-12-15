@@ -31,7 +31,6 @@ class BaseViewController: UIViewController {
     }
     
     @objc func showCartView() {
-        //segue
         let cartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CartScreen") as! CartViewController
         cartViewController.cartItems = App.appManagement.shoppingCart.shoppingCartItems
         self.navigationController?.pushViewController(cartViewController, animated: true)

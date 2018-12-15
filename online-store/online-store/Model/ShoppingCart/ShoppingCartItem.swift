@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ShoppingCartItem: NSObject {
+class ShoppingCartItem: NSObject, Codable {
+    
     //TODO: add Product
     var product: Product!
     //TODO: add count
