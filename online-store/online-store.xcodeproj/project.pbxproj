@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D66B3F821BD2D6500BECD36 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D66B3F721BD2D6500BECD36 /* CartTableViewCell.swift */; };
+		3D66B3F821BD2D6500BECD36 /* ShoppingCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D66B3F721BD2D6500BECD36 /* ShoppingCartTableViewCell.swift */; };
 		3DE7E04621B6F602006AAD7E /* ShoppingCartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE7E04521B6F602006AAD7E /* ShoppingCartItem.swift */; };
 		3DE7E04821B6F614006AAD7E /* ShoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE7E04721B6F614006AAD7E /* ShoppingCart.swift */; };
-		3DFF3E2121B929AF00C6259C /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFF3E2021B929AF00C6259C /* CartViewController.swift */; };
+		3DFF3E2121B929AF00C6259C /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFF3E2021B929AF00C6259C /* ShoppingCartViewController.swift */; };
 		3DFF3E2321B99CF000C6259C /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFF3E2221B99CF000C6259C /* App.swift */; };
 		758A350C5FC34265A7F88201 /* Pods_online_store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38EA80C399668023BE1D6EE5 /* Pods_online_store.framework */; };
 		CB064FC42131BAED0088982E /* ProductApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB064FC32131BAED0088982E /* ProductApi.swift */; };
@@ -55,10 +55,10 @@
 
 /* Begin PBXFileReference section */
 		38EA80C399668023BE1D6EE5 /* Pods_online_store.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_online_store.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D66B3F721BD2D6500BECD36 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		3D66B3F721BD2D6500BECD36 /* ShoppingCartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartTableViewCell.swift; sourceTree = "<group>"; };
 		3DE7E04521B6F602006AAD7E /* ShoppingCartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartItem.swift; sourceTree = "<group>"; };
 		3DE7E04721B6F614006AAD7E /* ShoppingCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCart.swift; sourceTree = "<group>"; };
-		3DFF3E2021B929AF00C6259C /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		3DFF3E2021B929AF00C6259C /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
 		3DFF3E2221B99CF000C6259C /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		5617A18AED03DC888A5B480A /* Pods-online-store.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-online-store.debug.xcconfig"; path = "Pods/Target Support Files/Pods-online-store/Pods-online-store.debug.xcconfig"; sourceTree = "<group>"; };
 		C8DFE9A1697F7410D98CA289 /* Pods-online-store.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-online-store.release.xcconfig"; path = "Pods/Target Support Files/Pods-online-store/Pods-online-store.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 				CB3413452135642E001E0E7B /* Assets.xcassets */,
 				CB5503A2212D65D10038DB60 /* CategoryCollectionViewCell.swift */,
 				CB89D87B21248180009F5BEC /* ProductCollectionViewCell.swift */,
-				3D66B3F721BD2D6500BECD36 /* CartTableViewCell.swift */,
+				3D66B3F721BD2D6500BECD36 /* ShoppingCartTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -196,7 +196,7 @@
 				CB855AF1212D58EF00B507F1 /* CategoriesViewController.swift */,
 				CBCF784A21628906001E3D1C /* SingleProductViewController.swift */,
 				CB14CF46216F9793002CFD0F /* BaseViewController.swift */,
-				3DFF3E2021B929AF00C6259C /* CartViewController.swift */,
+				3DFF3E2021B929AF00C6259C /* ShoppingCartViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -404,12 +404,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-online-store/Pods-online-store-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
@@ -443,7 +449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D66B3F821BD2D6500BECD36 /* CartTableViewCell.swift in Sources */,
+				3D66B3F821BD2D6500BECD36 /* ShoppingCartTableViewCell.swift in Sources */,
 				CB9A08EF2153C9C500E4BEE5 /* BaseDataProvider.swift in Sources */,
 				CB064FC42131BAED0088982E /* ProductApi.swift in Sources */,
 				CB89D87921245EFE009F5BEC /* ProductsViewController.swift in Sources */,
@@ -457,7 +463,7 @@
 				3DE7E04621B6F602006AAD7E /* ShoppingCartItem.swift in Sources */,
 				CB34134421356142001E0E7B /* SWRevealViewController.m in Sources */,
 				3DFF3E2321B99CF000C6259C /* App.swift in Sources */,
-				3DFF3E2121B929AF00C6259C /* CartViewController.swift in Sources */,
+				3DFF3E2121B929AF00C6259C /* ShoppingCartViewController.swift in Sources */,
 				CB89D87C21248180009F5BEC /* ProductCollectionViewCell.swift in Sources */,
 				CBCFA31A2124520D0043A08A /* AppDelegate.swift in Sources */,
 				3DE7E04821B6F614006AAD7E /* ShoppingCart.swift in Sources */,

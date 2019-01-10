@@ -11,11 +11,8 @@ import ObjectMapper
 
 class ShoppingCart: NSObject, Codable {
     
-    
-    //TODO: save array of ShoppingCartItem's
     var shoppingCartItems = [ShoppingCartItem]()
     
-    //addProduct
     func addProduct(product: Product) {
         if let index = shoppingCartItems.index(where: {$0.product.productId == product.productId}) {
             shoppingCartItems[index].addOneItem()
@@ -24,7 +21,6 @@ class ShoppingCart: NSObject, Codable {
         }
     }
     
-    //removeProduct
     func removeProduct(product: Product) -> Bool {
         if let index = shoppingCartItems.index(where: {$0.product.productId == product.productId}) {
             if shoppingCartItems[index].productCount == 1 {
@@ -38,12 +34,12 @@ class ShoppingCart: NSObject, Codable {
     }
     
     func countProductsInCart() -> Int {
-        return shoppingCartItems.count
+        var productsCount = 0
+        for product in shoppingCartItems {
+            productsCount += product.productCount
+        }
+        return productsCount
     }
-    
-    //save in UserDefaults
-    
-    
     
     func saveShoppingCart() {
         do {
@@ -55,7 +51,6 @@ class ShoppingCart: NSObject, Codable {
         
     }
     
-    //load from UserDefaults
     func loadData() {
         guard let data = UserDefaults.standard.object(forKey: "items") as? Data else {
             return

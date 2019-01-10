@@ -15,7 +15,7 @@ class CategoryApi: BaseApi {
 
     func loadCategories(categoryId: Int?, handler: @escaping ([Category]) -> Void) {
         let params = [
-                        "categoryId": categoryId ?? 0,
+                        "parentId": categoryId ?? 0,
                      ]
         sendRequest(relativeUrl: categoryListURL, params: params) { (data) in
             let dataObject = data as! Dictionary<String, Any>

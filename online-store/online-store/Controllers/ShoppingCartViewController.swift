@@ -8,25 +8,25 @@
 
 import UIKit
 
-class CartViewController: BaseViewController {
+class ShoppingCartViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var cartItems: [ShoppingCartItem]!
+    var shoppingCartItems: [ShoppingCartItem]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.title = "Cart"
         tableView.delegate = self
         tableView.dataSource = self
-        print(cartItems.count, " cart items count")
+        print(shoppingCartItems.count, " cart items count")
         self.navigationController?.title = "Cart"
     }
     
 }
 
 
-extension CartViewController: UITableViewDataSource, UITableViewDelegate, CartCellDelegate {
+extension ShoppingCartViewController: UITableViewDataSource, UITableViewDelegate, ShoppingCartCellDelegate {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -34,33 +34,29 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate, CartCe
     }
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.cartItems.count
+        return self.shoppingCartItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableCell") as! CartTableViewCell
-        let productItem = cartItems[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableCell") as! ShoppingCartTableViewCell
+        let productItem = shoppingCartItems[indexPath.row]
         cell.cellDelegate = self
         cell.populate(with: productItem)
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(110)
-    }
 
     func didPressPlus(_ sender: UIButton) {
         if let indexPath = getCurrentCellIndexPath(sender) {
-            App.appManagement.shoppingCart.addProduct(product: cartItems[indexPath.row].product)
-            self.cartItems = App.appManagement.shoppingCart.shoppingCartItems
+            App.appManagement.shoppingCart.addProduct(product: shoppingCartItems[indexPath.row].product)
+            self.shoppingCartItems = App.appManagement.shoppingCart.shoppingCartItems
             tableView.reloadData()
         }
     }
     
     func didPressMinus(_ sender: UIButton) {
         if let indexPath = getCurrentCellIndexPath(sender) {
-            if (App.appManagement.shoppingCart.removeProduct(product: cartItems[indexPath.row].product)) {
-                self.cartItems = App.appManagement.shoppingCart.shoppingCartItems
+            if (App.appManagement.shoppingCart.removeProduct(product: shoppingCartItems[indexPath.row].product)) {
+                self.shoppingCartItems = App.appManagement.shoppingCart.shoppingCartItems
                 tableView.reloadData()
             }
         }

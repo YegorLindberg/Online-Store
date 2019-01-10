@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import MaterialComponents.MaterialSnackbar
 
 class SingleProductViewController: BaseViewController {
     
@@ -22,6 +23,10 @@ class SingleProductViewController: BaseViewController {
     @IBAction func addProductButtonTapped(_ sender: UIButton) {
         App.appManagement.shoppingCart.addProduct(product: self.product)
         print(App.appManagement.shoppingCart.countProductsInCart(), " - products count in cart.")
+        let message = MDCSnackbarMessage()
+        message.text = "\(product.title!) was added in cart."
+        MDCSnackbarManager.show(message)
+        showSideCartButton()
     }
     
     override func viewDidLoad() {
@@ -34,5 +39,9 @@ class SingleProductViewController: BaseViewController {
         self.labelDescription.text = "Description:" + ((product.productDescription != nil) ? product.productDescription : "is missing.")
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        showSideCartButton()
+    }
+    
+    
 }

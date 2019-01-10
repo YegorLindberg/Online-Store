@@ -31,9 +31,12 @@ class ProductsViewController: BaseViewController {
         self.productDataProvier.reloadData()
         
         tryShowSideMenuButton()
-        showSideCartButton()
         addRefresher()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        showSideCartButton()
     }
     
     func addRefresher() {

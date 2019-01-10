@@ -22,8 +22,8 @@ class BaseViewController: UIViewController {
         }
     }
 
-    func showSideCartButton() {
-        let cartButton = UIBarButtonItem(title: "Cart",
+    func showSideCartButton() {        
+        let cartButton = UIBarButtonItem(title: "Cart (\(App.appManagement.shoppingCart.countProductsInCart()))",
                                          style: .done,
                                          target: self,
                                          action: #selector(showCartView))
@@ -31,8 +31,8 @@ class BaseViewController: UIViewController {
     }
     
     @objc func showCartView() {
-        let cartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CartScreen") as! CartViewController
-        cartViewController.cartItems = App.appManagement.shoppingCart.shoppingCartItems
+        let cartViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CartScreen") as! ShoppingCartViewController
+        cartViewController.shoppingCartItems = App.appManagement.shoppingCart.shoppingCartItems
         self.navigationController?.pushViewController(cartViewController, animated: true)
         print("Cart activate")
     }

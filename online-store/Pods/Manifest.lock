@@ -1,5 +1,43 @@
 PODS:
   - Alamofire (4.7.3)
+  - MaterialComponents/AnimationTiming (72.2.0)
+  - MaterialComponents/Buttons (72.2.0):
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/private/Shapes
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Typography
+    - MDFInternationalization
+    - MDFTextAccessibility
+  - MaterialComponents/Ink (72.2.0):
+    - MaterialComponents/private/Math
+  - MaterialComponents/OverlayWindow (72.2.0):
+    - MaterialComponents/private/Application
+  - MaterialComponents/private/Application (72.2.0)
+  - MaterialComponents/private/KeyboardWatcher (72.2.0):
+    - MaterialComponents/private/Application
+  - MaterialComponents/private/Math (72.2.0)
+  - MaterialComponents/private/Overlay (72.2.0)
+  - MaterialComponents/private/Shapes (72.2.0):
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowLayer
+  - MaterialComponents/ShadowElevations (72.2.0)
+  - MaterialComponents/ShadowLayer (72.2.0):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/Snackbar (72.2.0):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Buttons
+    - MaterialComponents/OverlayWindow
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/KeyboardWatcher
+    - MaterialComponents/private/Overlay
+    - MaterialComponents/Typography
+  - MaterialComponents/Typography (72.2.0):
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/Math
+  - MDFInternationalization (2.0.0)
+  - MDFTextAccessibility (2.0.0)
   - ObjectMapper (3.3.0)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
@@ -7,20 +45,27 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - MaterialComponents/Snackbar
   - ObjectMapper (~> 3.3)
   - SDWebImage (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - MaterialComponents
+    - MDFInternationalization
+    - MDFTextAccessibility
     - ObjectMapper
     - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  MaterialComponents: d1637df9976683348de8eabd10de0723ec81db3d
+  MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
+  MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
 
-PODFILE CHECKSUM: 7c0a96b80ac28c5ca82e8f4ecb1110b70ed4ee52
+PODFILE CHECKSUM: 5b2e1e066968473a71eddf08ffe064bb08cfbeb9
 
 COCOAPODS: 1.5.3

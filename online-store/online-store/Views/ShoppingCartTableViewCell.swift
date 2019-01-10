@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol CartCellDelegate: class {
+protocol ShoppingCartCellDelegate: class {
     func didPressPlus(_ sender: UIButton)
     func didPressMinus(_ sender: UIButton)
 }
 
-class CartTableViewCell: UITableViewCell {
+class ShoppingCartTableViewCell: UITableViewCell {
     
-    weak var cellDelegate: CartCellDelegate?
+    weak var cellDelegate: ShoppingCartCellDelegate?
     
     @IBOutlet weak var titleProductLabel: UILabel!
     @IBOutlet weak var imageViewProduct: UIImageView!
@@ -31,6 +31,7 @@ class CartTableViewCell: UITableViewCell {
     }
     
     func populate(with productItem: ShoppingCartItem) {
+        //TODO: use "self"
         titleProductLabel.text = productItem.product.title
         imageViewProduct.sd_setImage(with: URL(string: ("\(productItem.product.imageUrl ?? "Empty Img")")), placeholderImage: UIImage(named: "emptyimg.png"))
         if productItem.product.price == nil {

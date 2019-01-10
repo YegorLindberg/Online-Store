@@ -78,6 +78,7 @@ extension CategoriesViewController: UICollectionViewDataSource, UICollectionView
             performSegue(withIdentifier: "ShowProducts", sender: category.categoryId)
         }
     }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowProducts" {
             if let selectedCategory = sender as? Int, let destinationViewController = segue.destination as? ProductsViewController {
