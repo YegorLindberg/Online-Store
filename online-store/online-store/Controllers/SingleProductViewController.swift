@@ -26,12 +26,12 @@ class SingleProductViewController: BaseViewController {
         let message = MDCSnackbarMessage()
         message.text = "\(product.title!) was added in cart."
         MDCSnackbarManager.show(message)
-        showSideCartButton()
+        showShoppingCartButton()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showSideCartButton()
+        
         self.productImageView.sd_setImage(with: URL(string: ("\(product.imageUrl ?? "Empty Img")")), placeholderImage: UIImage(named: "emptyimg.png"))
         self.labelProductName.text = product.title
         self.labelRating.text = (product.rating != nil) ? "Rating: \(product.rating as! Double)" : "Rating is missing"
@@ -40,7 +40,7 @@ class SingleProductViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        showSideCartButton()
+        showShoppingCartButton()
     }
     
     

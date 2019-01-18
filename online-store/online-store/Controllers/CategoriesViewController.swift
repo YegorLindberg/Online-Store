@@ -17,18 +17,16 @@ class CategoriesViewController: BaseViewController {
     private var categories  = [Category]()
     private let categoryApi = CategoryApi()
     
-    var categoryId: Int?
-    var titleOfVC : String?
-    
+    var category: Category?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.titleOfVC == nil ? (self.title = "Categories") : (self.title = titleOfVC)
+        self.category?.fullName == nil ? (self.title = "Categories") : (self.title = self.category!.fullName)
         
         tryShowSideMenuButton()
 
-        self.categoryApi.loadCategories(categoryId: categoryId) { (categories) in
+        self.categoryApi.loadCategories(categoryId: category?.categoryId) { (categories) in
             self.categories = categories
             DispatchQueue.main.async {
                 self.collectionView?.reloadData()
@@ -61,8 +59,6 @@ extension CategoriesViewController: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
         let category = self.categories[indexPath.row]
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor.black.cgColor
         cell.populate(category: category)
         return cell
     }
@@ -71,18 +67,17 @@ extension CategoriesViewController: UICollectionViewDataSource, UICollectionView
         let category = categories[indexPath.row]
         if category.hasSubcategories != 0 {
             let categoryViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CategoryScreen") as! CategoriesViewController
-            categoryViewController.categoryId = category.categoryId
-            categoryViewController.titleOfVC = category.title
+            categoryViewController.category = category
             self.navigationController?.pushViewController(categoryViewController, animated: true)
         } else {
-            performSegue(withIdentifier: "ShowProducts", sender: category.categoryId)
+            performSegue(withIdentifier: "ShowProducts", sender: category)
         }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowProducts" {
-            if let selectedCategory = sender as? Int, let destinationViewController = segue.destination as? ProductsViewController {
-                destinationViewController.categoryId = selectedCategory
+            if let selectedCategory = sender as? Category, let destinationViewController = segue.destination as? ProductsViewController {
+                destinationViewController.category = selectedCategory
             }
         }
     }    

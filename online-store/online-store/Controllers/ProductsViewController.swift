@@ -19,24 +19,32 @@ class ProductsViewController: BaseViewController {
     private var products   = [Product]()
     private let productApi = ProductApi()
     
-    var categoryId: Int?
+    var category: Category?
     
     var productDataProvier = ProductDataProvider()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.activityIndicator()
         self.productDataProvier.delegate = self
-        self.productDataProvier.categoryId = self.categoryId
-        self.productDataProvier.reloadData()
+        self.productDataProvier.categoryId = self.category?.categoryId
         
         tryShowSideMenuButton()
         addRefresher()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        showSideCartButton()
+        self.productDataProvier.reloadData()
+        showShoppingCartButton()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showProduct" {
+            if let selectedProduct = sender as? Product, let destinationViewController = segue.destination as? SingleProductViewController {
+                destinationViewController.product = selectedProduct
+            }
+        }
     }
     
     func addRefresher() {
@@ -53,29 +61,26 @@ class ProductsViewController: BaseViewController {
 
 }
 
-
-extension ProductsViewController: UICollectionViewDataSource, UICollectionViewDelegate, DataProviderDelegate {
+extension ProductsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return self.products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row > self.products.count - 5 {
-            self.productDataProvier.loadNextItems()
+            if self.productDataProvier.loadNextItems() {
+                print("next products was loaded.")
+            }
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCollectionViewCell
         let product = self.products[indexPath.row]
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor.black.cgColor
         cell.populate(product: product)
         return cell
     }
@@ -84,14 +89,9 @@ extension ProductsViewController: UICollectionViewDataSource, UICollectionViewDe
         let product = products[indexPath.row]
         performSegue(withIdentifier: "showProduct", sender: product)
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showProduct" {
-            if let selectedProduct = sender as? Product, let destinationViewController = segue.destination as? SingleProductViewController {
-                destinationViewController.product = selectedProduct
-            }
-        }
-    }
-    
+}
+
+extension ProductsViewController:  DataProviderDelegate {
     func dataProvider(_ dataProvider: BaseDataProvider, onItemsUpdated items: [Any]) {
         self.products = items as! [Product]
         print("products count: \(self.products.count)")
@@ -99,7 +99,8 @@ extension ProductsViewController: UICollectionViewDataSource, UICollectionViewDe
         DispatchQueue.main.async {
             self.collectionView?.reloadData()
             self.refresher?.endRefreshing()
+            //TODO: extract to hideActivityIndicator..
+            self.hud.hide(animated: true)
         }
     }
-    
 }
