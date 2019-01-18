@@ -11,18 +11,17 @@ import MBProgressHUD
 
 class BaseViewController: UIViewController {
 
-    //TODO: add MBProgressHud to show loading progress on every screen
     var hud = MBProgressHUD()
     
-    //TODO: rename to showActivityIndicator
-    func activityIndicator() {
-        if (self.hud == nil) {
-            self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-            self.hud.label.text = "Loading..."
-        }
+    func showActivityIndicator() {
+        self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        self.hud.label.text = "Loading..."
+        self.view.addSubview(hud)
     }
     
-    func hide 
+    func hideActivityIndicator() {
+        self.hud.hide(animated: true)
+    }
 
     func tryShowSideMenuButton() {
         if (revealViewController() != nil) && (navigationController?.viewControllers.count == 1) {

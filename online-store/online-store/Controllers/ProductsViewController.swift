@@ -11,7 +11,6 @@ import Alamofire
 import SDWebImage
 import ObjectMapper
 
-//TODO: show HUD on data loading, use MBProgressHud
 class ProductsViewController: BaseViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -26,16 +25,16 @@ class ProductsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.activityIndicator()
+        self.showActivityIndicator()
         self.productDataProvier.delegate = self
         self.productDataProvier.categoryId = self.category?.categoryId
+        self.productDataProvier.reloadData()
         
         tryShowSideMenuButton()
         addRefresher()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.productDataProvier.reloadData()
         showShoppingCartButton()
     }
     
@@ -92,15 +91,15 @@ extension ProductsViewController: UICollectionViewDataSource, UICollectionViewDe
 }
 
 extension ProductsViewController:  DataProviderDelegate {
+    
     func dataProvider(_ dataProvider: BaseDataProvider, onItemsUpdated items: [Any]) {
         self.products = items as! [Product]
         print("products count: \(self.products.count)")
-        //TODO: check queue, try to delete DispatchQueue.main.async
-        DispatchQueue.main.async {
-            self.collectionView?.reloadData()
-            self.refresher?.endRefreshing()
-            //TODO: extract to hideActivityIndicator..
-            self.hud.hide(animated: true)
-        }
+//        TODO: check queue, try to delete DispatchQueue.main.async
+//        print("is main thread: ", Thread.isMainThread) //true
+        self.collectionView?.reloadData()
+        self.refresher?.endRefreshing()
+        self.hideActivityIndicator()
     }
+    
 }

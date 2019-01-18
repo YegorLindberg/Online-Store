@@ -24,14 +24,15 @@ class CategoriesViewController: BaseViewController {
         
         self.category?.fullName == nil ? (self.title = "Categories") : (self.title = self.category!.fullName)
         
+        showActivityIndicator()
         tryShowSideMenuButton()
 
         self.categoryApi.loadCategories(categoryId: category?.categoryId) { (categories) in
             self.categories = categories
-            DispatchQueue.main.async {
-                self.collectionView?.reloadData()
-                print("view categories")
-            }
+//            print("categories, is main thread: ", Thread.isMainThread) // (true)
+            self.collectionView?.reloadData()
+            print("view categories")
+            self.hideActivityIndicator()
         }
         
     }
@@ -41,6 +42,8 @@ class CategoriesViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+    }
     
 }
 
