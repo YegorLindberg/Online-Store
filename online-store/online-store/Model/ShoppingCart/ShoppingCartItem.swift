@@ -10,9 +10,7 @@ import UIKit
 
 class ShoppingCartItem: NSObject, Codable {
     
-    //TODO: add Product
     var product: Product!
-    //TODO: add count
     var productCount = 1
     
     init (_ product: Product) {

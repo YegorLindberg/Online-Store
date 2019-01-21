@@ -95,8 +95,6 @@ extension ProductsViewController:  DataProviderDelegate {
     func dataProvider(_ dataProvider: BaseDataProvider, onItemsUpdated items: [Any]) {
         self.products = items as! [Product]
         print("products count: \(self.products.count)")
-//        TODO: check queue, try to delete DispatchQueue.main.async
-//        print("is main thread: ", Thread.isMainThread) //true
         self.collectionView?.reloadData()
         self.refresher?.endRefreshing()
         self.hideActivityIndicator()

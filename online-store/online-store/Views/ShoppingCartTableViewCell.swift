@@ -30,10 +30,9 @@ class ShoppingCartTableViewCell: UITableViewCell {
         cellDelegate?.didPressMinus(sender)
     }
     
-    func populate(with productItem: ShoppingCartItem) {
-        //TODO: use "self"
-        titleProductLabel.text = productItem.product.title
-        imageViewProduct.sd_setImage(with: URL(string: ("\(productItem.product.imageUrl ?? "Empty Img")")), placeholderImage: UIImage(named: "emptyimg.png"))
+    func populate(with productItem: ShoppingCartItem) {        
+        self.titleProductLabel.text = productItem.product.title
+        self.imageViewProduct.sd_setImage(with: URL(string: ("\(productItem.product.imageUrl ?? "Empty Img")")), placeholderImage: UIImage(named: "emptyimg.png"))
         if productItem.product.price == nil {
             priceProductLabel.text = "is missing"
         } else {

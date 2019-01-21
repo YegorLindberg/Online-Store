@@ -29,7 +29,6 @@ class CategoriesViewController: BaseViewController {
 
         self.categoryApi.loadCategories(categoryId: category?.categoryId) { (categories) in
             self.categories = categories
-//            print("categories, is main thread: ", Thread.isMainThread) // (true)
             self.collectionView?.reloadData()
             print("view categories")
             self.hideActivityIndicator()
